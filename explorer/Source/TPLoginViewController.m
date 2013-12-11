@@ -28,6 +28,12 @@
     [[UINavigationBar appearance] setTintColor:[UIColor darkGrayColor]];
     self.navigationItem.title = @"login";
     
+    NSDictionary *attributes = @{
+                                 NSFontAttributeName: [UIFont fontWithName:@"TitilliumText25L-250wt" size:16],
+                                 NSForegroundColorAttributeName: [UIColor colorWithRed:84.0/255.0 green:124.0/255.0 blue:146.0/255.0 alpha:1]
+                                 };
+    [[UINavigationBar appearance] setTitleTextAttributes:attributes];
+    
     [self.logInView setBackgroundColor:[UIColor whiteColor]];
 
     // Hide unnecessary views
@@ -41,8 +47,8 @@
     self.logInView.usernameField.hidden = YES;
     self.logInView.passwordField.hidden = YES;
     
-    // facebook & twitter button setup
-    UIColor *fColor = [UIColor colorWithRed:0.6 green:0.8 blue:0.9 alpha:1.0];
+    // for got button color
+    UIColor *fColor = [UIColor colorWithRed:84.0/255.0 green:124.0/255.0 blue:146.0/255.0 alpha:1];
     
     // Set field text color
     self.usernameField = [[UITextField alloc] init];
@@ -73,12 +79,12 @@
     self.passwordField.layer.borderColor = [[UIColor lightGrayColor] CGColor];
     
     // back button
-    CGSize fSize = CGSizeMake(50.0f, 20.0f);
-    self.forgotButton = [[KHButton alloc] initWithButtonSize:fSize withColor:fColor withTitle:@"forgot?"];
+    CGSize fSize = CGSizeMake(120.0f, 25.0f);
+    self.forgotButton = [[KHButton alloc] initWithButtonSize:fSize withColor:fColor withTitle:@"forgot password"];
     [self.forgotButton setButtonFont:@"HelveticaNeue-Light" withSize:10];
     self.forgotButton.delegate = self;
-    self.forgotButton.frame = CGRectMake(100, 275, 120, 25);
-    [self.forgotButton setCornerRadius:5.0];
+    self.forgotButton.frame = CGRectMake(100, 260, 120, 25);
+    [self.forgotButton setCornerRadius:2.0];
     [self.logInView insertSubview:self.forgotButton atIndex:0];
     
     // setup bg view

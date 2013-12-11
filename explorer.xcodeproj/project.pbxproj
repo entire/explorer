@@ -63,6 +63,13 @@
 		2C81A5021859049A006CB2BA /* TPSIgnupView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C81A4FD1859049A006CB2BA /* TPSIgnupView.m */; };
 		2C81A5031859049A006CB2BA /* TPSignupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C81A4FF1859049A006CB2BA /* TPSignupViewController.m */; };
 		2C81A509185905FF006CB2BA /* TPMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C81A506185905FF006CB2BA /* TPMainViewController.m */; };
+		2C81A51318590CA2006CB2BA /* 1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C81A51018590CA2006CB2BA /* 1@2x.png */; };
+		2C81A51418590CA2006CB2BA /* 2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C81A51118590CA2006CB2BA /* 2@2x.png */; };
+		2C81A51518590CA2006CB2BA /* 3@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C81A51218590CA2006CB2BA /* 3@2x.png */; };
+		2C81A51718590D6E006CB2BA /* titleicon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C81A51618590D6E006CB2BA /* titleicon@2x.png */; };
+		2C81A51B18590DD5006CB2BA /* TitilliumTextLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2C81A51818590DD5006CB2BA /* TitilliumTextLight.ttf */; };
+		2C81A51C18590DD5006CB2BA /* TitilliumTextMedium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2C81A51918590DD5006CB2BA /* TitilliumTextMedium.ttf */; };
+		2C81A51D18590DD5006CB2BA /* TitilliumTextNormal.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2C81A51A18590DD5006CB2BA /* TitilliumTextNormal.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -166,6 +173,13 @@
 		2C81A4FF1859049A006CB2BA /* TPSignupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPSignupViewController.m; sourceTree = "<group>"; };
 		2C81A505185905FF006CB2BA /* TPMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPMainViewController.h; sourceTree = "<group>"; };
 		2C81A506185905FF006CB2BA /* TPMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPMainViewController.m; sourceTree = "<group>"; };
+		2C81A51018590CA2006CB2BA /* 1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "1@2x.png"; sourceTree = "<group>"; };
+		2C81A51118590CA2006CB2BA /* 2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "2@2x.png"; sourceTree = "<group>"; };
+		2C81A51218590CA2006CB2BA /* 3@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "3@2x.png"; sourceTree = "<group>"; };
+		2C81A51618590D6E006CB2BA /* titleicon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "titleicon@2x.png"; sourceTree = "<group>"; };
+		2C81A51818590DD5006CB2BA /* TitilliumTextLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = TitilliumTextLight.ttf; sourceTree = "<group>"; };
+		2C81A51918590DD5006CB2BA /* TitilliumTextMedium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = TitilliumTextMedium.ttf; sourceTree = "<group>"; };
+		2C81A51A18590DD5006CB2BA /* TitilliumTextNormal.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = TitilliumTextNormal.ttf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -200,7 +214,7 @@
 			children = (
 				2C81A43D1858FBEE006CB2BA /* Supporting Files */,
 				2C81A4F61859048D006CB2BA /* Source */,
-				2C81A465185901E6006CB2BA /* Assets */,
+				2C81A50B185909E7006CB2BA /* Assets */,
 				2C81A466185901E6006CB2BA /* Categories */,
 				2C81A467185901E6006CB2BA /* Libraries */,
 				2C81A4351858FBEE006CB2BA /* Frameworks */,
@@ -254,14 +268,6 @@
 			);
 			name = "Supporting Files";
 			path = explorer;
-			sourceTree = "<group>";
-		};
-		2C81A465185901E6006CB2BA /* Assets */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Assets;
-			path = explorer/Assets;
 			sourceTree = "<group>";
 		};
 		2C81A466185901E6006CB2BA /* Categories */ = {
@@ -458,6 +464,21 @@
 			name = Root/Login/Signup;
 			sourceTree = "<group>";
 		};
+		2C81A50B185909E7006CB2BA /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				2C81A51818590DD5006CB2BA /* TitilliumTextLight.ttf */,
+				2C81A51918590DD5006CB2BA /* TitilliumTextMedium.ttf */,
+				2C81A51A18590DD5006CB2BA /* TitilliumTextNormal.ttf */,
+				2C81A51618590D6E006CB2BA /* titleicon@2x.png */,
+				2C81A51018590CA2006CB2BA /* 1@2x.png */,
+				2C81A51118590CA2006CB2BA /* 2@2x.png */,
+				2C81A51218590CA2006CB2BA /* 3@2x.png */,
+			);
+			name = Assets;
+			path = explorer/Assets;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -510,8 +531,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2C81A51D18590DD5006CB2BA /* TitilliumTextNormal.ttf in Resources */,
+				2C81A51318590CA2006CB2BA /* 1@2x.png in Resources */,
 				2C81A4411858FBEE006CB2BA /* InfoPlist.strings in Resources */,
+				2C81A51B18590DD5006CB2BA /* TitilliumTextLight.ttf in Resources */,
+				2C81A51718590D6E006CB2BA /* titleicon@2x.png in Resources */,
+				2C81A51518590CA2006CB2BA /* 3@2x.png in Resources */,
 				2C81A4491858FBEE006CB2BA /* Images.xcassets in Resources */,
+				2C81A51C18590DD5006CB2BA /* TitilliumTextMedium.ttf in Resources */,
+				2C81A51418590CA2006CB2BA /* 2@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

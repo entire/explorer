@@ -8,7 +8,7 @@
 
 #import "TPAppDelegate.h"
 #import <Parse/Parse.h>
-#import "TPMainViewController.h"
+#import "TPRootViewController.h"
 
 @implementation TPAppDelegate
 
@@ -20,6 +20,9 @@
     [Parse setApplicationId:@"93Ui2yKGsivfRJm2QXZcf2GBvRnOIeQ3Mw18vI8H"
                   clientKey:@"YP3earAM5WaedpdyBnp49gI4nGWg5Y14cRxEGBqo"];
     
+    TPRootViewController *vc = [[TPRootViewController alloc] init];
+    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
+    self.window.rootViewController = nav;
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     return YES;

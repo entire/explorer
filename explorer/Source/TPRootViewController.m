@@ -13,7 +13,6 @@
 #import "TPMainViewController.h"
 #import "KHButton.h"
 #import "MMDrawerVisualState.h"
-#import "BCMenuViewController.h"
 #import <Parse/Parse.h>
 #import "TPLoginViewController.h"
 #import "TPSignupViewController.h"
@@ -44,26 +43,27 @@
     UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(80, 284, 160, 30)];
     label.backgroundColor = [UIColor clearColor];
     label.textAlignment = NSTextAlignmentCenter;
-    label.text = @"b l a c k c a r d";
-    label.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:20];
+    label.text = @"e x p l o r e r";
+    label.textColor = [UIColor colorWithRed:84.0/255.0 green:124.0/255.0 blue:146.0/255.0 alpha:1];
+    label.font = [UIFont fontWithName:@"TitilliumText25L-250wt" size:22];
     [view addSubview:label];
     
     CGSize buttonSize = CGSizeMake(220, 40);
-    UIColor *loginColor = [UIColor colorWithRed:0.2 green:0.2 blue:0.2 alpha:1.0];
-    UIColor *signUpColor = [UIColor colorWithRed:0.1 green:0.1 blue:0.1 alpha:1.0];
+    UIColor *loginColor = [UIColor colorWithRed:59.0/255.0 green:95.0/255.0 blue:114.0/255.0 alpha:1];
+    UIColor *signUpColor = [UIColor colorWithRed:36.0/255.0 green:64.0/255.0 blue:79.0/255.0 alpha:1];
     
-    self.loginButton = [[KHButton alloc] initWithButtonSize:buttonSize withColor:loginColor withTitle:@"l o g i n"];
+    self.loginButton = [[KHButton alloc] initWithButtonSize:buttonSize withColor:loginColor withTitle:@"l o g  i n"];
     self.loginButton.delegate = self;
     self.loginButton.frame = CGRectMake(50, 400, 220, 40);
     self.loginButton.tag = kKHButtonTypeLogin;
-    [self.loginButton setButtonFont:@"HelveticaNeue-Light" withSize:15];
+    [self.loginButton setButtonFont:@"TitilliumText25L-250wt" withSize:15];
     [view addSubview:self.loginButton];
     
-    self.signupButton = [[KHButton alloc] initWithButtonSize:buttonSize withColor:signUpColor withTitle:@"s i g n  u p"];
+    self.signupButton = [[KHButton alloc] initWithButtonSize:buttonSize withColor:signUpColor withTitle:@"j o i n"];
     self.signupButton.delegate = self;
     self.signupButton.tag = kKHButtonTypeSignup;
     self.signupButton.frame = CGRectMake(50, 450, 220, 40);
-    [self.signupButton setButtonFont:@"HelveticaNeue-Light" withSize:15];
+    [self.signupButton setButtonFont:@"TitilliumText25L-250wt" withSize:15];
     [view addSubview:self.signupButton];
     
     self.view = view;
@@ -80,11 +80,13 @@
     }
 
     
-    self.navigationController.navigationBarHidden = YES;
     
     if (![[NSUserDefaults standardUserDefaults] objectForKey:@"normalLaunch"]) {
         NSLog(@"RootVC - first time launch!");
-        [self showIntro];
+        //        [self showIntro];
+//        self.navigationController.navigationBarHidden = YES;
+
+
     } else {
         NSLog(@"RootVC - normal launch!");
         self.navigationController.navigationBarHidden = NO;
