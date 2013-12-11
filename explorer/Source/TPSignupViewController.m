@@ -51,7 +51,6 @@
 }
 
 - (void)viewDidLayoutSubviews {
-    
     [super viewDidLayoutSubviews];
     
     if (IS_IPAD) {
