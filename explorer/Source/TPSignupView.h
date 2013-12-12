@@ -24,7 +24,6 @@
 @property (nonatomic, strong) UILabel *nameLabel;
 @property (nonatomic, strong) UIImageView *fieldsBackground;
 @property (nonatomic, strong) KHButton *signUpButton;
-@property (nonatomic, strong) KHButton *backButton;
 @property (nonatomic, strong) UIImage *userSelectedImage;
 @property (nonatomic, strong) KHButton *userImageButton;
 @property (nonatomic, strong) UITextField *usernameField;

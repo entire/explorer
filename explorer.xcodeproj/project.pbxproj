@@ -70,6 +70,10 @@
 		2C81A51B18590DD5006CB2BA /* TitilliumTextLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2C81A51818590DD5006CB2BA /* TitilliumTextLight.ttf */; };
 		2C81A51C18590DD5006CB2BA /* TitilliumTextMedium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2C81A51918590DD5006CB2BA /* TitilliumTextMedium.ttf */; };
 		2C81A51D18590DD5006CB2BA /* TitilliumTextNormal.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2C81A51A18590DD5006CB2BA /* TitilliumTextNormal.ttf */; };
+		2CDD482C185A7EEB007928A2 /* TPMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CDD482B185A7EEB007928A2 /* TPMenuViewController.m */; };
+		2CDD4833185A7F7D007928A2 /* TPProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CDD4830185A7F7D007928A2 /* TPProfileViewController.m */; };
+		2CDD4834185A7F7D007928A2 /* TPAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CDD4832185A7F7D007928A2 /* TPAboutViewController.m */; };
+		2CDD4839185A7FCC007928A2 /* TPUserManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CDD4838185A7FCC007928A2 /* TPUserManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -180,6 +184,14 @@
 		2C81A51818590DD5006CB2BA /* TitilliumTextLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = TitilliumTextLight.ttf; sourceTree = "<group>"; };
 		2C81A51918590DD5006CB2BA /* TitilliumTextMedium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = TitilliumTextMedium.ttf; sourceTree = "<group>"; };
 		2C81A51A18590DD5006CB2BA /* TitilliumTextNormal.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = TitilliumTextNormal.ttf; sourceTree = "<group>"; };
+		2CDD482A185A7EEB007928A2 /* TPMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPMenuViewController.h; sourceTree = "<group>"; };
+		2CDD482B185A7EEB007928A2 /* TPMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPMenuViewController.m; sourceTree = "<group>"; };
+		2CDD482F185A7F7D007928A2 /* TPProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPProfileViewController.h; sourceTree = "<group>"; };
+		2CDD4830185A7F7D007928A2 /* TPProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPProfileViewController.m; sourceTree = "<group>"; };
+		2CDD4831185A7F7D007928A2 /* TPAboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPAboutViewController.h; sourceTree = "<group>"; };
+		2CDD4832185A7F7D007928A2 /* TPAboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPAboutViewController.m; sourceTree = "<group>"; };
+		2CDD4837185A7FCC007928A2 /* TPUserManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPUserManager.h; sourceTree = "<group>"; };
+		2CDD4838185A7FCC007928A2 /* TPUserManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPUserManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -433,6 +445,11 @@
 		2C81A4F61859048D006CB2BA /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				2CDD4836185A7FC5007928A2 /* Controller */,
+				2CDD4835185A7FC2007928A2 /* Model */,
+				2CDD482E185A7F71007928A2 /* About */,
+				2CDD482D185A7F6B007928A2 /* Profile */,
+				2CDD4829185A7ED9007928A2 /* Menu */,
 				2C81A504185904A7006CB2BA /* Root/Login/Signup */,
 				2C81A4F718590492006CB2BA /* Controllers */,
 			);
@@ -477,6 +494,49 @@
 			);
 			name = Assets;
 			path = explorer/Assets;
+			sourceTree = "<group>";
+		};
+		2CDD4829185A7ED9007928A2 /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+				2CDD482A185A7EEB007928A2 /* TPMenuViewController.h */,
+				2CDD482B185A7EEB007928A2 /* TPMenuViewController.m */,
+			);
+			name = Menu;
+			sourceTree = "<group>";
+		};
+		2CDD482D185A7F6B007928A2 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Profile;
+			sourceTree = "<group>";
+		};
+		2CDD482E185A7F71007928A2 /* About */ = {
+			isa = PBXGroup;
+			children = (
+				2CDD482F185A7F7D007928A2 /* TPProfileViewController.h */,
+				2CDD4830185A7F7D007928A2 /* TPProfileViewController.m */,
+				2CDD4831185A7F7D007928A2 /* TPAboutViewController.h */,
+				2CDD4832185A7F7D007928A2 /* TPAboutViewController.m */,
+			);
+			name = About;
+			sourceTree = "<group>";
+		};
+		2CDD4835185A7FC2007928A2 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				2CDD4837185A7FCC007928A2 /* TPUserManager.h */,
+				2CDD4838185A7FCC007928A2 /* TPUserManager.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		2CDD4836185A7FC5007928A2 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -555,10 +615,12 @@
 				2C81A4C918590295006CB2BA /* KHBase.m in Sources */,
 				2C81A4C318590295006CB2BA /* GKImagePicker.m in Sources */,
 				2C81A4C518590295006CB2BA /* UIImage+PrivateAlpha.m in Sources */,
+				2CDD4839185A7FCC007928A2 /* TPUserManager.m in Sources */,
 				2C81A4BF18590295006CB2BA /* UIColor+addVeryLightGray.m in Sources */,
 				2C81A4CB18590295006CB2BA /* KHVIew.m in Sources */,
 				2C81A4CC18590295006CB2BA /* KHViewController.m in Sources */,
 				2C81A4C018590295006CB2BA /* EAIntroPage.m in Sources */,
+				2CDD4833185A7F7D007928A2 /* TPProfileViewController.m in Sources */,
 				2C81A4C818590295006CB2BA /* UIImage+RoundedCorner.m in Sources */,
 				2C81A4B618590295006CB2BA /* AFImageRequestOperation.m in Sources */,
 				2C81A4CE18590295006CB2BA /* MMDrawerController.m in Sources */,
@@ -574,10 +636,12 @@
 				2C81A4BA18590295006CB2BA /* AFURLConnectionOperation.m in Sources */,
 				2C81A4471858FBEE006CB2BA /* TPAppDelegate.m in Sources */,
 				2C81A4BB18590295006CB2BA /* AFXMLRequestOperation.m in Sources */,
+				2CDD482C185A7EEB007928A2 /* TPMenuViewController.m in Sources */,
 				2C81A4431858FBEE006CB2BA /* main.m in Sources */,
 				2C81A5021859049A006CB2BA /* TPSIgnupView.m in Sources */,
 				2C81A4C418590295006CB2BA /* UIImage+FixOrientation.m in Sources */,
 				2C81A4BD18590295006CB2BA /* NSString+CheckForValidEmail.m in Sources */,
+				2CDD4834185A7F7D007928A2 /* TPAboutViewController.m in Sources */,
 				2C81A4B818590295006CB2BA /* AFNetworkActivityIndicatorManager.m in Sources */,
 				2C81A5011859049A006CB2BA /* TPRootViewController.m in Sources */,
 				2C81A4BC18590295006CB2BA /* UIImageView+AFNetworking.m in Sources */,
@@ -730,6 +794,7 @@
 				2C81A4611858FBEE006CB2BA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

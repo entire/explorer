@@ -34,7 +34,6 @@
     [view addSubview:self.signupView];
     
     self.view = view;
-
 }
 
 - (void)viewDidLoad {
@@ -82,10 +81,6 @@
             [self.signupView.nameField setFrame:CGRectMake(start_x, offset_y+120.0f, 250.0f, 40.0f)];
             self.signupView.signUpButton.frame = CGRectNull;
         }
-
-        self.signupView.backButton.frame = CGRectMake(50.0f, 20.0f, 50.0f, 50.0f);
-        self.signupView.nameLabel.font = [UIFont fontWithName:@"HelveticaNeue-UltraLightItalic" size:50];
-        self.signupView.nameLabel.textColor = [UIColor blackColor];
     }
 }
 
@@ -93,17 +88,10 @@
 
 - (void)buttonWasTouchedUpInside:(KHButton *)button {
     
-    if (button == self.signupView.backButton) {
-        // clicked the back button
-        [self.navigationController popViewControllerAnimated:YES];
-        
-    } else if (button == self.signupView.signUpButton) {
+    if (button == self.signupView.signUpButton) {
         // clicked the sign up button
         [self signUpButtonPressed];
         
-    } else if (button == self.signupView.userImageButton) {
-        // clicked the image button
-        [self addImageTapped];
     }
 }
 
