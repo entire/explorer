@@ -9,8 +9,9 @@
 #import "TPMenuViewController.h"
 #import "UIColor+addVeryLightGray.h"
 #import "KHButton.h"
-#import "TProfileViewController.h"
+#import "TPProfileViewController.h"
 #import "TPAboutViewController.h"
+#import "TPMainViewController.h"
 #import "UIViewController+MMDrawerController.h"
 
 @interface TPMenuViewController ()
@@ -21,8 +22,8 @@
 {
     NSMutableArray *titles;
     UINavigationController *nav;
-    BCMainViewController *vc1;
-    TPProfileViewController.h *vc2;
+    TPMainViewController *vc1;
+    TPProfileViewController *vc2;
     TPAboutViewController *vc3;
 }
 
@@ -124,7 +125,7 @@
             
         } else if (indexPath.row == 1) {
             if (vc2 == nil) {
-                vc2 = [[TPProfileViewController.h alloc] init];
+                vc2 = [[TPProfileViewController alloc] init];
             }
             [nav setViewControllers:@[vc2]];
             

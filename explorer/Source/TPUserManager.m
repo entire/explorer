@@ -1,25 +1,25 @@
 //
-//  BCUserManager.m
+//  TPUserManager.m
 //  blackcard
 //
 //  Created by Kosuke Hata on 12/12/13.
 //  Copyright (c) 2013 topiary. All rights reserved.
 //
 
-#import "BCUserManager.h"
+#import "TPUserManager.h"
 
-@implementation BCUserManager
+@implementation TPUserManager
 {
     NSMutableDictionary *users;
 }
 
 #pragma mark - Singleton Pattern Setup
 
-+ (BCUserManager *)sharedStore {
-    static BCUserManager *_sharedStore = nil;
++ (TPUserManager *)sharedStore {
+    static TPUserManager *_sharedStore = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        _sharedStore = [[BCUserManager alloc] init];
+        _sharedStore = [[TPUserManager alloc] init];
     });
     
     return _sharedStore;

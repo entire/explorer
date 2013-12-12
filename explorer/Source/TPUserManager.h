@@ -25,5 +25,4 @@
 - (void)addUserToLocal:(PFUser *)user forObjectID:(NSString *)string;
 - (void)removeUserFromLocal:(NSString *)objectID;
 
-
 @end

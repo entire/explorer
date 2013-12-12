@@ -1,5 +1,5 @@
 //
-//  TPProfileViewController.h
+//  TPProfileViewController
 //  blackcard
 //
 //  Created by Kosuke Hata on 12/11/13.

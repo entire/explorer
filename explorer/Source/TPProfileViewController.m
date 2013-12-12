@@ -1,5 +1,5 @@
 //
-//  TPProfileViewController.h.m
+//  TPProfileViewController.m
 //  blackcard
 //
 //  Created by Kosuke Hata on 12/11/13.
@@ -10,11 +10,11 @@
 #import "TPUserManager.h"
 #import "UIViewController+MMDrawerController.h"
 
-@interface TPProfileViewController.h ()
+@interface TPProfileViewController ()
 
 @end
 
-@implementation TPProfileViewController.h
+@implementation TPProfileViewController
 {
     BOOL drawerIsOpen;
 }
