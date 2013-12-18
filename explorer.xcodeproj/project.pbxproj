@@ -91,7 +91,6 @@
 		2C47BE56186173EB0016871F /* about.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = about.png; sourceTree = "<group>"; };
 		2C47BE57186173EB0016871F /* about@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "about@2x.png"; sourceTree = "<group>"; };
 		2C47BE5E186173F00016871F /* menu_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu_icon@2x.png"; sourceTree = "<group>"; };
-		2C47BE6318617B180016871F /* ParseAppIDAndKeys.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParseAppIDAndKeys.h; sourceTree = "<group>"; };
 		2C81A4331858FBEE006CB2BA /* explorer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = explorer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C81A4361858FBEE006CB2BA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		2C81A4381858FBEE006CB2BA /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -327,7 +326,6 @@
 				2C81A4421858FBEE006CB2BA /* main.m */,
 				2C81A4441858FBEE006CB2BA /* explorer-Prefix.pch */,
 				2C81A4691859021E006CB2BA /* KHConstants.h */,
-				2C47BE6318617B180016871F /* ParseAppIDAndKeys.h */,
 			);
 			name = "Supporting Files";
 			path = explorer;
