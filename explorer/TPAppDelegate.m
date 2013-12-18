@@ -8,6 +8,7 @@
 
 #import "TPAppDelegate.h"
 #import <Parse/Parse.h>
+#import "ParseAppIDAndKeys.h"
 #import "TPRootViewController.h"
 
 @implementation TPAppDelegate
@@ -17,8 +18,8 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     
-    [Parse setApplicationId:@"93Ui2yKGsivfRJm2QXZcf2GBvRnOIeQ3Mw18vI8H"
-                  clientKey:@"YP3earAM5WaedpdyBnp49gI4nGWg5Y14cRxEGBqo"];
+    [Parse setApplicationId:kParseApplicationID
+                  clientKey:kParseClientKey];
     
     TPRootViewController *vc = [[TPRootViewController alloc] init];
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];

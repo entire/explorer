@@ -13,3 +13,4 @@
 #define IS_IOS7 [[[UIDevice currentDevice] systemVersion] floatValue] >= 7.0
 
 #define kPhoneWidth 320.0f
+

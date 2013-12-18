@@ -1,6 +1,6 @@
 //
 //  TPUserManager.h
-//  blackcard
+//  explorer
 //
 //  Created by Kosuke Hata on 12/12/13.
 //  Copyright (c) 2013 topiary. All rights reserved.
