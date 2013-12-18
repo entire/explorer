@@ -110,7 +110,7 @@
         [user setUsername:username];
         [user setEmail:email];
         [user setPassword:self.signupView.passwordField.text];
-        [user setObject:self.signupView.nameField.text forKey:@"additional"];
+        [user setObject:self.signupView.nameField.text forKey:@"name"];
         [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
 
             // change ui to dim out bg view

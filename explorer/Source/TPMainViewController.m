@@ -8,6 +8,7 @@
 
 #import "TPMainViewController.h"
 #import <Parse/Parse.h>
+#import "UIViewController+MMDrawerController.h"
 
 @interface TPMainViewController ()
 
@@ -19,17 +20,22 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
 	// Do any additional setup after loading the view.
     self.view.backgroundColor = [UIColor lightGrayColor];
     self.navigationItem.hidesBackButton = YES;
-    self.navigationItem.title = @"Main Page";
+    self.navigationItem.title = @"Map";
     
     UIBarButtonItem *rightbutton = [[UIBarButtonItem alloc] initWithTitle:@"log out" style:UIBarButtonItemStylePlain target:self action:@selector(logout:)];
     self.navigationItem.rightBarButtonItem = rightbutton;
                                     
     [[UINavigationBar appearance] setTintColor:[UIColor darkGrayColor]];
     
-//    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"menu_icon"] landscapeImagePhone:[UIImage imageNamed:@"menu_icon"] style:UIBarButtonItemStylePlain target:self action:@selector(openMenu:)];
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"menu_icon"]
+                                                               landscapeImagePhone:[UIImage imageNamed:@"menu_icon"]
+                                                                             style:UIBarButtonItemStylePlain
+                                                                            target:self
+                                                                            action:@selector(openMenu:)];
     
 }
 
@@ -42,7 +48,7 @@
 
 - (void)openMenu:(id)sender
 {
-    
+    [self.mm_drawerController openDrawerSide:MMDrawerSideLeft animated:YES completion:nil];
 }
 
 - (void)logout:(id)sender
