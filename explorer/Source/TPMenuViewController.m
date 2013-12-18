@@ -20,7 +20,9 @@
 
 @implementation TPMenuViewController
 {
-    NSMutableArray *titles;
+    NSArray *titles;
+    NSArray *images;
+    
     UINavigationController *nav;
     TPMainViewController *vc1;
     TPProfileViewController *vc2;
@@ -32,13 +34,13 @@
     //programtically make things happen
     CGRect rect = [KHBase getCurrentCGRect];
     UIView *view = [[UIView alloc] initWithFrame:rect];
-    view.backgroundColor = [UIColor veryLightGray];
+    view.backgroundColor = [UIColor whiteColor];
     
     UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.width, self.height-self.barSize)];
-    tableView.delegate = self;
     tableView.separatorColor = [UIColor whiteColor];
     tableView.backgroundColor = [UIColor whiteColor];
     tableView.dataSource = self;
+    tableView.delegate = self;
     tableView.scrollEnabled = NO;
     tableView.showsVerticalScrollIndicator = NO;
     [view addSubview:tableView];
@@ -47,9 +49,6 @@
     headerView.backgroundColor = [UIColor whiteColor];
     tableView.tableHeaderView = headerView;
     
-    UIView *footerView = [[UIView alloc] initWithFrame:CGRectMake(0.0f, self.height-self.y_start-self.barSize, kPhoneWidth, self.barSize+self.y_start)];
-    footerView.backgroundColor = [UIColor clearColor];
-    tableView.tableFooterView = footerView;
     
     self.view = view;
 }
@@ -59,11 +58,12 @@
     [super viewDidLoad];
 	
     // Do any additional setup after loading the view.
-    titles = [[NSMutableArray alloc] initWithObjects:
-              @"Map",
-              @"Profile",
-              @"About",
-              nil];
+    titles = @[@"Map",@"Everyone",@"About"];
+    
+    UIImage *img1 = [UIImage imageNamed:@"map"];
+    UIImage *img2 = [UIImage imageNamed:@"users"];
+    UIImage *img3 = [UIImage imageNamed:@"about"];
+    images = @[img1, img2, img3];
 }
 
 - (void)didReceiveMemoryWarning
@@ -101,6 +101,7 @@
     cell.selectionStyle = UITableViewCellSelectionStyleDefault;
     cell.textLabel.textColor = [UIColor blackColor];
     cell.textLabel.text = titles[indexPath.row];
+    cell.imageView.image = images[indexPath.row];
     
     return cell;
 }
@@ -122,13 +123,11 @@
             }
             [nav setViewControllers:@[vc1]];
             
-            
         } else if (indexPath.row == 1) {
             if (vc2 == nil) {
                 vc2 = [[TPProfileViewController alloc] init];
             }
             [nav setViewControllers:@[vc2]];
-            
             
         } else if (indexPath.row == 2) {
             if (vc3 == nil) {

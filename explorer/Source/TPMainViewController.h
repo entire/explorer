@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MapKit/MapKit.h>
+#import "KHButton.h"
 
-@interface TPMainViewController : KHViewController
+@interface TPMainViewController : KHViewController <MKMapViewDelegate, KHButtonDelegate>
+
+@property (nonatomic, strong) MKMapView *mapView;
 
 @end

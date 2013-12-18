@@ -15,7 +15,25 @@
 @end
 
 @implementation TPMainViewController
+{
+    BOOL drawerIsOpen;
+}
 
+- (void)loadView
+{
+    UIView *view = [[UIView alloc] initWithFrame:[KHBase getCurrentCGRect]];
+    
+    self.mapView = [[MKMapView alloc] initWithFrame:CGRectMake(0, self.barSize+self.y_start, self.width, self.height-self.barSize-self.y_start)];
+    [self.mapView setShowsUserLocation:YES];
+    [self.mapView setMapType:MKMapTypeStandard];
+    [self.mapView setZoomEnabled:YES];
+    [self.mapView setScrollEnabled:YES];
+    self.mapView.delegate = self;
+    
+    [view addSubview:self.mapView];
+    
+    self.view = view;
+}
 
 - (void)viewDidLoad
 {
@@ -42,6 +60,13 @@
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
+}
+
+#pragma mark - KHButton Delegate method
+
+- (void)buttonWasTouchedUpInside:(KHButton *)button
+{
+    
 }
 
 #pragma mark - Target Action Methods

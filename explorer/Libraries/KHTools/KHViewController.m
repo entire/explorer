@@ -1,6 +1,6 @@
 //
 //  KHViewController.m
-//  explorer
+//  KHTools
 //
 //  Created by Kosuke Hata on 9/18/13.
 //  Copyright (c) 2013 topiary. All rights reserved.
@@ -14,23 +14,18 @@
 
 @implementation KHViewController
 
-@synthesize barView;
-@synthesize nameLabel;
-@synthesize leftButton;
-@synthesize rightButton;
-
-@synthesize height;
-@synthesize width;
-@synthesize y_start;
-@synthesize x_start;
-@synthesize barSize;
-
 
 - (id)init
 {
     self = [super init];
     if (self) {
-//        KHBase *base = [KHBase getBaseParameters];
+        KHBase *rect = [KHBase getBaseParameters];
+        
+        self.height = rect.height;
+        self.width = rect.width;
+        self.barSize = rect.barSize;
+        self.y_start = rect.y_start;
+        self.x_start = rect.x_start;
         
     }
     return self;
@@ -38,6 +33,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     if (IS_IOS7) {
         [self setNeedsStatusBarAppearanceUpdate];
     }

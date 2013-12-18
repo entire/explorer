@@ -1,6 +1,6 @@
 //
 //  KHView.m
-//  explorer
+//  KHTools
 //
 //  Created by Kosuke Hata on 9/17/13.
 //  Copyright (c) 2013 topiary. All rights reserved.
@@ -15,24 +15,19 @@
 
 @implementation KHView
 
-@synthesize barView = _barView;
-@synthesize nameLabel = _nameLabel;
-@synthesize leftButton = _leftButton;
-@synthesize rightButton = _rightButton;
-
-@synthesize width = _width;
-@synthesize height = _height;
-@synthesize x_start = _x_start;
-@synthesize y_start = _y_start;
-@synthesize barSize = _barSize;
-
 #pragma mark - Setup Parameters
 
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
     if (self) {
-        //...
+        KHBase *rect = [KHBase getBaseParameters];
+        
+        self.height = rect.height;
+        self.width = rect.width;
+        self.barSize = rect.barSize;
+        self.y_start = rect.y_start;
+        self.x_start = rect.x_start;
     }
     return self;
 }

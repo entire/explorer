@@ -16,6 +16,7 @@
 #import <Parse/Parse.h>
 #import "TPLoginViewController.h"
 #import "TPSignupViewController.h"
+#import "TPMenuViewController.h"
 
 @interface TPRootViewController ()
 
@@ -100,12 +101,32 @@
     if (![PFUser currentUser]) { // User is not logged in
         NSLog(@"RootVC - viewDidAppear and user is not logged in");
         [self showButtons];
-
+        
     } else {
         NSLog(@"RootVC - viewDidAppear and user is logged in!");
+        self.navigationController.navigationBarHidden = YES;
         
         TPMainViewController *vc = [[TPMainViewController alloc] init];
-        [self.navigationController pushViewController:vc animated:NO];
+        UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
+        TPMenuViewController *menu = [[TPMenuViewController alloc] init];
+        
+        MMDrawerController * drawerController = [[MMDrawerController alloc] initWithCenterViewController:nav
+                                                                                leftDrawerViewController:menu];
+        [drawerController setOpenDrawerGestureModeMask:MMOpenDrawerGestureModeBezelPanningCenterView];
+        [drawerController setCloseDrawerGestureModeMask:MMCloseDrawerGestureModeAll];
+        [drawerController setMaximumRightDrawerWidth:280.0];
+        [drawerController setShowsShadow:NO];
+        [drawerController setShouldStretchDrawer:NO];
+        
+        [drawerController setDrawerVisualStateBlock:^(MMDrawerController *drawerController, MMDrawerSide drawerSide, CGFloat percentVisible) {
+            MMDrawerControllerDrawerVisualStateBlock block = [MMDrawerVisualState parallaxVisualStateBlockWithParallaxFactor:2.0];
+            
+            if(block){
+                block(drawerController, drawerSide, percentVisible);
+            }
+        }];
+        
+        [self.navigationController pushViewController:drawerController animated:NO];
     }
 }
 
