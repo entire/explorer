@@ -72,8 +72,6 @@
     [self.mm_drawerController.navigationController popToRootViewControllerAnimated:YES];
 }
 
-
-
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

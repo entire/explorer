@@ -13,6 +13,7 @@
 #import "RIButtonItem.h"
 #import "UIAlertView+Blocks.h"
 #import "TPUserManager.h"
+#import "REMenu.h"
 
 @interface TPMainMapViewController ()
 
@@ -22,18 +23,20 @@
 {
     BOOL drawerIsOpen;
     BOOL locationWasFound;
+    BOOL dropdownIsOpen;
 }
 
 - (id)init
 {
     self = [super init];
     if (self) {
-        //...
         locationWasFound = NO;
         drawerIsOpen = NO;
+        dropdownIsOpen = NO;
     }
     return self;
 }
+
 - (void)loadView
 {
     UIView *view = [[UIView alloc] initWithFrame:[KHBase getCurrentCGRect]];
@@ -63,11 +66,17 @@
     
     [[UINavigationBar appearance] setTintColor:[UIColor darkGrayColor]];
     
+    // adding navigation button items
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"menu_icon"]
-                                                               landscapeImagePhone:[UIImage imageNamed:@"menu_icon"]
                                                                              style:UIBarButtonItemStylePlain
                                                                             target:self
-                                                                            action:@selector(openMenu:)];
+                                                                            action:@selector(openSideMenu:)];
+    
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"more"]
+                                                                              style:UIBarButtonItemStylePlain
+                                                                             target:self
+                                                                             action:@selector(openDropdownMenu:)];
+
 
     // fetch objects
     PFQuery *query = [PFQuery queryWithClassName:@"Location"];
@@ -76,25 +85,16 @@
         [self updatePins];
     }];
     
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"menu_icon"]
-                                                                             style:UIBarButtonItemStylePlain
-                                                                            target:self
-                                                                            action:@selector(openMenu:)];
-    
-    // add single nav tap
-    UITapGestureRecognizer *navSingleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(navSingleTap)];
-    navSingleTap.numberOfTapsRequired = 1;
-    [[self.navigationController.navigationBar.subviews objectAtIndex:1] setUserInteractionEnabled:YES];
-    [[self.navigationController.navigationBar.subviews objectAtIndex:1] addGestureRecognizer:navSingleTap];
-    
     // adding long press gesture recognizer to mapview
-    UILongPressGestureRecognizer *tgr = [[UILongPressGestureRecognizer alloc]initWithTarget:self action:@selector(handleGesture:)];
+    UILongPressGestureRecognizer *tgr = [[UILongPressGestureRecognizer alloc]initWithTarget:self
+                                                                                     action:@selector(handleGesture:)];
     [self.mapView addGestureRecognizer:tgr];
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    [self centerMapViewToCurrentLocation];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -107,6 +107,7 @@
     [super viewWillDisappear:animated];
     locationWasFound = NO;
 }
+
 
 #pragma mark - Helper methods
 
@@ -133,17 +134,10 @@
     [self.mapView setRegion:region animated:YES];
 }
 
+
 #pragma mark - Target Action Methods
 
-- (void)navSingleTap
-{
-    NSLog(@"tapped!");
-    // center our map view around this geopoint
-    [self centerMapViewToCurrentLocation];
-    
-}
-
-- (void)openMenu:(id)sender
+- (void)openSideMenu:(id)sender
 {
     if (!drawerIsOpen) {
         [self.mm_drawerController openDrawerSide:MMDrawerSideLeft animated:YES completion:^(BOOL finished) {
@@ -152,6 +146,40 @@
     } else {
         [self.mm_drawerController closeDrawerAnimated:YES completion:^(BOOL finished) {
             drawerIsOpen = NO;
+        }];
+    }
+}
+
+- (void)openDropdownMenu:(id)sender
+{
+    if (!dropdownIsOpen) {
+        
+        REMenuItem *users = [[REMenuItem alloc] initWithTitle:@"Users"
+                                                           subtitle:nil
+                                                              image:[UIImage imageNamed:@"users"]
+                                                   highlightedImage:nil
+                                                             action:^(REMenuItem *item) {
+                                                                 NSLog(@"Item: %@", item);
+                                                             }];
+        
+        REMenuItem *settings = [[REMenuItem alloc] initWithTitle:@"Settings"
+                                                            subtitle:nil
+                                                               image:[UIImage imageNamed:@"settings"]
+                                                    highlightedImage:nil
+                                                              action:^(REMenuItem *item) {
+                                                                  NSLog(@"Item: %@", item);
+                                                              }];
+        
+        
+        self.menu = [[REMenu alloc] initWithItems:@[users, settings]];
+        [self.menu showFromNavigationController:self.navigationController];
+
+        dropdownIsOpen = YES;
+        
+    } else {
+        [self.menu closeWithCompletion:^{
+            NSLog(@"dropdown closed!");
+            dropdownIsOpen = NO;
         }];
     }
 }
@@ -202,11 +230,14 @@
     //    [self centerMapViewToCurrentLocation];
 }
 
+#pragma mark - gesture handler
+
 
 - (void)handleGesture:(UIGestureRecognizer *)gestureRecognizer
 {
-    if (gestureRecognizer.state != UIGestureRecognizerStateEnded)
+    if (gestureRecognizer.state != UIGestureRecognizerStateEnded) {
         return;
+    }
     
     CGPoint touchPoint = [gestureRecognizer locationInView:self.mapView];
     CLLocationCoordinate2D coordinate = [self.mapView convertPoint:touchPoint toCoordinateFromView:self.mapView];
@@ -217,7 +248,8 @@
                                                  message:message
                                         cancelButtonItem:[RIButtonItem itemWithLabel:@"No" action:nil]
                                         otherButtonItems:[RIButtonItem itemWithLabel:@"Yes" action:^{
-        [[TPLocationManager sharedLocation] pushLocationToServer:location withCompletion:^(CLLocation *yourLocaiton, PFObject *object) {
+        [[TPLocationManager sharedLocation] pushLocationToServer:location
+                                                  withCompletion:^(CLLocation *yourLocaiton, PFObject *object) {
             [self addAnnotationsWithObject:object];
         }];
         

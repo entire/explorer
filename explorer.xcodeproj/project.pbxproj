@@ -75,6 +75,15 @@
 		2C81A51B18590DD5006CB2BA /* TitilliumTextLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2C81A51818590DD5006CB2BA /* TitilliumTextLight.ttf */; };
 		2C81A51C18590DD5006CB2BA /* TitilliumTextMedium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2C81A51918590DD5006CB2BA /* TitilliumTextMedium.ttf */; };
 		2C81A51D18590DD5006CB2BA /* TitilliumTextNormal.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2C81A51A18590DD5006CB2BA /* TitilliumTextNormal.ttf */; };
+		2C883ADB186389BE0045FE55 /* location.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C883AD9186389BE0045FE55 /* location.png */; };
+		2C883ADC186389BE0045FE55 /* location@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C883ADA186389BE0045FE55 /* location@2x.png */; };
+		2C883ADF18638EAF0045FE55 /* more.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C883ADD18638EAF0045FE55 /* more.png */; };
+		2C883AE018638EAF0045FE55 /* more@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C883ADE18638EAF0045FE55 /* more@2x.png */; };
+		2C883AEC18638F380045FE55 /* RECommonFunctions.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C883AE318638F380045FE55 /* RECommonFunctions.m */; };
+		2C883AED18638F380045FE55 /* REMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C883AE518638F380045FE55 /* REMenu.m */; };
+		2C883AEE18638F380045FE55 /* REMenuContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C883AE718638F380045FE55 /* REMenuContainerView.m */; };
+		2C883AEF18638F380045FE55 /* REMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C883AE918638F380045FE55 /* REMenuItem.m */; };
+		2C883AF018638F380045FE55 /* REMenuItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C883AEB18638F380045FE55 /* REMenuItemView.m */; };
 		2CDD482C185A7EEB007928A2 /* TPMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CDD482B185A7EEB007928A2 /* TPMenuViewController.m */; };
 		2CDD4833185A7F7D007928A2 /* TPProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CDD4830185A7F7D007928A2 /* TPProfileViewController.m */; };
 		2CDD4834185A7F7D007928A2 /* TPSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CDD4832185A7F7D007928A2 /* TPSettingsViewController.m */; };
@@ -202,6 +211,20 @@
 		2C81A51818590DD5006CB2BA /* TitilliumTextLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = TitilliumTextLight.ttf; sourceTree = "<group>"; };
 		2C81A51918590DD5006CB2BA /* TitilliumTextMedium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = TitilliumTextMedium.ttf; sourceTree = "<group>"; };
 		2C81A51A18590DD5006CB2BA /* TitilliumTextNormal.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = TitilliumTextNormal.ttf; sourceTree = "<group>"; };
+		2C883AD9186389BE0045FE55 /* location.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = location.png; sourceTree = "<group>"; };
+		2C883ADA186389BE0045FE55 /* location@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "location@2x.png"; sourceTree = "<group>"; };
+		2C883ADD18638EAF0045FE55 /* more.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = more.png; sourceTree = "<group>"; };
+		2C883ADE18638EAF0045FE55 /* more@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "more@2x.png"; sourceTree = "<group>"; };
+		2C883AE218638F380045FE55 /* RECommonFunctions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RECommonFunctions.h; sourceTree = "<group>"; };
+		2C883AE318638F380045FE55 /* RECommonFunctions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RECommonFunctions.m; sourceTree = "<group>"; };
+		2C883AE418638F380045FE55 /* REMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REMenu.h; sourceTree = "<group>"; };
+		2C883AE518638F380045FE55 /* REMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REMenu.m; sourceTree = "<group>"; };
+		2C883AE618638F380045FE55 /* REMenuContainerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REMenuContainerView.h; sourceTree = "<group>"; };
+		2C883AE718638F380045FE55 /* REMenuContainerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REMenuContainerView.m; sourceTree = "<group>"; };
+		2C883AE818638F380045FE55 /* REMenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REMenuItem.h; sourceTree = "<group>"; };
+		2C883AE918638F380045FE55 /* REMenuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REMenuItem.m; sourceTree = "<group>"; };
+		2C883AEA18638F380045FE55 /* REMenuItemView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REMenuItemView.h; sourceTree = "<group>"; };
+		2C883AEB18638F380045FE55 /* REMenuItemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REMenuItemView.m; sourceTree = "<group>"; };
 		2CDD482A185A7EEB007928A2 /* TPMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPMenuViewController.h; sourceTree = "<group>"; };
 		2CDD482B185A7EEB007928A2 /* TPMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPMenuViewController.m; sourceTree = "<group>"; };
 		2CDD482F185A7F7D007928A2 /* TPProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPProfileViewController.h; sourceTree = "<group>"; };
@@ -355,6 +378,7 @@
 		2C81A467185901E6006CB2BA /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				2C883AE118638F380045FE55 /* REMenu */,
 				2CE4C8F8186281F100751A30 /* UIAlertViewBlocks */,
 				2C81A46A18590295006CB2BA /* AFNetworking */,
 				2C81A47E18590295006CB2BA /* Categories */,
@@ -528,6 +552,10 @@
 		2C81A50B185909E7006CB2BA /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				2C883ADD18638EAF0045FE55 /* more.png */,
+				2C883ADE18638EAF0045FE55 /* more@2x.png */,
+				2C883AD9186389BE0045FE55 /* location.png */,
+				2C883ADA186389BE0045FE55 /* location@2x.png */,
 				2CE4C8E01862717F00751A30 /* settings.png */,
 				2CE4C8E11862717F00751A30 /* settings@2x.png */,
 				2C47BE5E186173F00016871F /* menu_icon@2x.png */,
@@ -545,6 +573,23 @@
 			);
 			name = Assets;
 			path = explorer/Assets;
+			sourceTree = "<group>";
+		};
+		2C883AE118638F380045FE55 /* REMenu */ = {
+			isa = PBXGroup;
+			children = (
+				2C883AE218638F380045FE55 /* RECommonFunctions.h */,
+				2C883AE318638F380045FE55 /* RECommonFunctions.m */,
+				2C883AE418638F380045FE55 /* REMenu.h */,
+				2C883AE518638F380045FE55 /* REMenu.m */,
+				2C883AE618638F380045FE55 /* REMenuContainerView.h */,
+				2C883AE718638F380045FE55 /* REMenuContainerView.m */,
+				2C883AE818638F380045FE55 /* REMenuItem.h */,
+				2C883AE918638F380045FE55 /* REMenuItem.m */,
+				2C883AEA18638F380045FE55 /* REMenuItemView.h */,
+				2C883AEB18638F380045FE55 /* REMenuItemView.m */,
+			);
+			path = REMenu;
 			sourceTree = "<group>";
 		};
 		2CDD4835185A7FC2007928A2 /* Model */ = {
@@ -655,9 +700,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2C883ADF18638EAF0045FE55 /* more.png in Resources */,
 				2C81A51D18590DD5006CB2BA /* TitilliumTextNormal.ttf in Resources */,
 				2C81A51318590CA2006CB2BA /* 1@2x.png in Resources */,
 				2C81A4411858FBEE006CB2BA /* InfoPlist.strings in Resources */,
+				2C883ADC186389BE0045FE55 /* location@2x.png in Resources */,
 				2CE4C8E31862717F00751A30 /* settings@2x.png in Resources */,
 				2C81A51B18590DD5006CB2BA /* TitilliumTextLight.ttf in Resources */,
 				2C47BE5B186173EB0016871F /* users@2x.png in Resources */,
@@ -665,7 +712,9 @@
 				2C81A51718590D6E006CB2BA /* titleicon@2x.png in Resources */,
 				2C47BE5A186173EB0016871F /* users.png in Resources */,
 				2C81A51518590CA2006CB2BA /* 3@2x.png in Resources */,
+				2C883AE018638EAF0045FE55 /* more@2x.png in Resources */,
 				2C47BE5F186173F00016871F /* menu_icon@2x.png in Resources */,
+				2C883ADB186389BE0045FE55 /* location.png in Resources */,
 				2CE4C8E21862717F00751A30 /* settings.png in Resources */,
 				2C81A4491858FBEE006CB2BA /* Images.xcassets in Resources */,
 				2C81A51C18590DD5006CB2BA /* TitilliumTextMedium.ttf in Resources */,
@@ -688,12 +737,14 @@
 				2C81A4C518590295006CB2BA /* UIImage+PrivateAlpha.m in Sources */,
 				2CDD4839185A7FCC007928A2 /* TPUserManager.m in Sources */,
 				2C81A4BF18590295006CB2BA /* UIColor+addVeryLightGray.m in Sources */,
+				2C883AEC18638F380045FE55 /* RECommonFunctions.m in Sources */,
 				2CE4C8EA18627ABA00751A30 /* TPGeoPointAnnotation.m in Sources */,
 				2C81A4CB18590295006CB2BA /* KHVIew.m in Sources */,
 				2CE4C900186281F100751A30 /* UIActionSheet+Blocks.m in Sources */,
 				2C81A4CC18590295006CB2BA /* KHViewController.m in Sources */,
 				2C81A4C018590295006CB2BA /* EAIntroPage.m in Sources */,
 				2CDD4833185A7F7D007928A2 /* TPProfileViewController.m in Sources */,
+				2C883AEE18638F380045FE55 /* REMenuContainerView.m in Sources */,
 				2C81A4C818590295006CB2BA /* UIImage+RoundedCorner.m in Sources */,
 				2C81A4B618590295006CB2BA /* AFImageRequestOperation.m in Sources */,
 				2C81A4CE18590295006CB2BA /* MMDrawerController.m in Sources */,
@@ -715,10 +766,13 @@
 				2C81A4431858FBEE006CB2BA /* main.m in Sources */,
 				2C81A5021859049A006CB2BA /* TPSIgnupView.m in Sources */,
 				2C81A4C418590295006CB2BA /* UIImage+FixOrientation.m in Sources */,
+				2C883AED18638F380045FE55 /* REMenu.m in Sources */,
 				2C81A4BD18590295006CB2BA /* NSString+CheckForValidEmail.m in Sources */,
 				2CDD4834185A7F7D007928A2 /* TPSettingsViewController.m in Sources */,
 				2C81A4B818590295006CB2BA /* AFNetworkActivityIndicatorManager.m in Sources */,
 				2C81A5011859049A006CB2BA /* TPRootViewController.m in Sources */,
+				2C883AF018638F380045FE55 /* REMenuItemView.m in Sources */,
+				2C883AEF18638F380045FE55 /* REMenuItem.m in Sources */,
 				2CE4C8FF186281F100751A30 /* RIButtonItem.m in Sources */,
 				2C81A4BC18590295006CB2BA /* UIImageView+AFNetworking.m in Sources */,
 				2C81A5001859049A006CB2BA /* TPLoginViewController.m in Sources */,
