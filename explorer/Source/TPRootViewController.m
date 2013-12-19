@@ -70,34 +70,33 @@
     self.view = view;
 }
 
-- (void)viewWillAppear:(BOOL)animated
+- (void)viewDidLoad
 {
-    [super viewWillAppear:animated];
+    [super viewDidLoad];
     
     if (IS_IOS7) {
         self.navigationController.navigationBar.barTintColor = [UIColor whiteColor];
     } else {
         self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
     }
-
-    
     
     if (![[NSUserDefaults standardUserDefaults] objectForKey:@"normalLaunch"]) {
         NSLog(@"RootVC - first time launch!");
         //        [self showIntro];
-//        self.navigationController.navigationBarHidden = YES;
-
-
+        //        self.navigationController.navigationBarHidden = YES;
     } else {
         NSLog(@"RootVC - normal launch!");
         self.navigationController.navigationBarHidden = NO;
     }
+
+    
 }
 
-- (void)viewDidAppear:(BOOL)animated
+- (void)viewWillAppear:(BOOL)animated
 {
-    [super viewDidAppear:animated];
+    [super viewWillAppear:animated];
     
+    // USER SIGN IN STATUS CHECK
     if (![PFUser currentUser]) { // User is not logged in
         NSLog(@"RootVC - viewDidAppear and user is not logged in");
         [self showButtons];
@@ -130,12 +129,12 @@
     }
 }
 
-- (void)viewDidLoad
+- (void)viewDidAppear:(BOOL)animated
 {
-    [super viewDidLoad];
-    
-
+    [super viewDidAppear:animated];
 }
+
+
 
 - (void)didReceiveMemoryWarning
 {

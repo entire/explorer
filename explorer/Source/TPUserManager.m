@@ -85,8 +85,6 @@
     } else {
         completionBlock(YES, localUser);
     }
-    
-    
 }
 
 - (void)fetchAllUsersWithCompletion:(void (^)(BOOL finished, NSArray *people))completionBlock {
@@ -94,7 +92,11 @@
     PFQuery *query = [PFUser query];
     [query findObjectsInBackgroundWithBlock:^(NSArray *people, NSError *error) {
         if (!error) {
-                        
+            for (int i=0; i<people.count; i++) {
+                PFUser *person = people[i];
+                NSString *userID = [NSString stringWithFormat:@"%@", person.objectId];
+                [users setObject:person forKey:userID];
+            }
             
             if (completionBlock != nil) {
                 completionBlock(YES, people);
@@ -107,5 +109,6 @@
         }
     }];
 }
+
 
 @end

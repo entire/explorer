@@ -9,9 +9,14 @@
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
 #import "KHButton.h"
+#import "TPLocationManager.h"
 
-@interface TPMainMapViewController : KHViewController <MKMapViewDelegate, KHButtonDelegate>
+@interface TPMainMapViewController : KHViewController <MKMapViewDelegate, KHButtonDelegate, TPLocationManagerDelegate>
 
 @property (nonatomic, strong) MKMapView *mapView;
+@property (nonatomic, strong) CLLocation *currentLocation;
+@property (nonatomic, strong) NSMutableArray *places;
+@property (nonatomic, strong) NSMutableArray *users;
+
 
 @end

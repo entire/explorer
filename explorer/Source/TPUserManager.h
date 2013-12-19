@@ -14,7 +14,7 @@
 + (TPUserManager *)sharedStore;
 
 // fetch
-- (void)fetchUserByObjectID:(NSString *)objectID WithCompletion:(void (^)(BOOL finished, PFObject *user))completionBlock;
+- (void)fetchUserByObjectID:(NSString *)objectID WithCompletion:(void (^)(BOOL finished, PFObject *person))completionBlock;
 - (void)fetchAllUsersWithCompletion:(void (^)(BOOL finished, NSArray *users))completionBlock;
 
 // get methods (local changes)

@@ -81,6 +81,11 @@
 		2CDD4839185A7FCC007928A2 /* TPUserManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CDD4838185A7FCC007928A2 /* TPUserManager.m */; };
 		2CE4C8E21862717F00751A30 /* settings.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CE4C8E01862717F00751A30 /* settings.png */; };
 		2CE4C8E31862717F00751A30 /* settings@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CE4C8E11862717F00751A30 /* settings@2x.png */; };
+		2CE4C8EA18627ABA00751A30 /* TPGeoPointAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CE4C8E918627ABA00751A30 /* TPGeoPointAnnotation.m */; };
+		2CE4C8ED186280D000751A30 /* TPLocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CE4C8EC186280D000751A30 /* TPLocationManager.m */; };
+		2CE4C8FF186281F100751A30 /* RIButtonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CE4C8FA186281F100751A30 /* RIButtonItem.m */; };
+		2CE4C900186281F100751A30 /* UIActionSheet+Blocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CE4C8FC186281F100751A30 /* UIActionSheet+Blocks.m */; };
+		2CE4C901186281F100751A30 /* UIAlertView+Blocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CE4C8FE186281F100751A30 /* UIAlertView+Blocks.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -207,6 +212,16 @@
 		2CDD4838185A7FCC007928A2 /* TPUserManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPUserManager.m; sourceTree = "<group>"; };
 		2CE4C8E01862717F00751A30 /* settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settings.png; sourceTree = "<group>"; };
 		2CE4C8E11862717F00751A30 /* settings@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "settings@2x.png"; sourceTree = "<group>"; };
+		2CE4C8E818627ABA00751A30 /* TPGeoPointAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPGeoPointAnnotation.h; sourceTree = "<group>"; };
+		2CE4C8E918627ABA00751A30 /* TPGeoPointAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPGeoPointAnnotation.m; sourceTree = "<group>"; };
+		2CE4C8EB186280D000751A30 /* TPLocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPLocationManager.h; sourceTree = "<group>"; };
+		2CE4C8EC186280D000751A30 /* TPLocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPLocationManager.m; sourceTree = "<group>"; };
+		2CE4C8F9186281F100751A30 /* RIButtonItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RIButtonItem.h; sourceTree = "<group>"; };
+		2CE4C8FA186281F100751A30 /* RIButtonItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RIButtonItem.m; sourceTree = "<group>"; };
+		2CE4C8FB186281F100751A30 /* UIActionSheet+Blocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIActionSheet+Blocks.h"; sourceTree = "<group>"; };
+		2CE4C8FC186281F100751A30 /* UIActionSheet+Blocks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIActionSheet+Blocks.m"; sourceTree = "<group>"; };
+		2CE4C8FD186281F100751A30 /* UIAlertView+Blocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertView+Blocks.h"; sourceTree = "<group>"; };
+		2CE4C8FE186281F100751A30 /* UIAlertView+Blocks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAlertView+Blocks.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -340,6 +355,7 @@
 		2C81A467185901E6006CB2BA /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				2CE4C8F8186281F100751A30 /* UIAlertViewBlocks */,
 				2C81A46A18590295006CB2BA /* AFNetworking */,
 				2C81A47E18590295006CB2BA /* Categories */,
 				2C81A48518590295006CB2BA /* EAIntroView */,
@@ -536,6 +552,10 @@
 			children = (
 				2CDD4837185A7FCC007928A2 /* TPUserManager.h */,
 				2CDD4838185A7FCC007928A2 /* TPUserManager.m */,
+				2CE4C8EB186280D000751A30 /* TPLocationManager.h */,
+				2CE4C8EC186280D000751A30 /* TPLocationManager.m */,
+				2CE4C8E818627ABA00751A30 /* TPGeoPointAnnotation.h */,
+				2CE4C8E918627ABA00751A30 /* TPGeoPointAnnotation.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -568,6 +588,19 @@
 				2CDD4832185A7F7D007928A2 /* TPSettingsViewController.m */,
 			);
 			name = Settings;
+			sourceTree = "<group>";
+		};
+		2CE4C8F8186281F100751A30 /* UIAlertViewBlocks */ = {
+			isa = PBXGroup;
+			children = (
+				2CE4C8F9186281F100751A30 /* RIButtonItem.h */,
+				2CE4C8FA186281F100751A30 /* RIButtonItem.m */,
+				2CE4C8FB186281F100751A30 /* UIActionSheet+Blocks.h */,
+				2CE4C8FC186281F100751A30 /* UIActionSheet+Blocks.m */,
+				2CE4C8FD186281F100751A30 /* UIAlertView+Blocks.h */,
+				2CE4C8FE186281F100751A30 /* UIAlertView+Blocks.m */,
+			);
+			path = UIAlertViewBlocks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -655,7 +688,9 @@
 				2C81A4C518590295006CB2BA /* UIImage+PrivateAlpha.m in Sources */,
 				2CDD4839185A7FCC007928A2 /* TPUserManager.m in Sources */,
 				2C81A4BF18590295006CB2BA /* UIColor+addVeryLightGray.m in Sources */,
+				2CE4C8EA18627ABA00751A30 /* TPGeoPointAnnotation.m in Sources */,
 				2C81A4CB18590295006CB2BA /* KHVIew.m in Sources */,
+				2CE4C900186281F100751A30 /* UIActionSheet+Blocks.m in Sources */,
 				2C81A4CC18590295006CB2BA /* KHViewController.m in Sources */,
 				2C81A4C018590295006CB2BA /* EAIntroPage.m in Sources */,
 				2CDD4833185A7F7D007928A2 /* TPProfileViewController.m in Sources */,
@@ -666,6 +701,8 @@
 				2C81A4D218590295006CB2BA /* SDSegmentedControl.m in Sources */,
 				2C81A4C118590295006CB2BA /* EAIntroView.m in Sources */,
 				2C81A5031859049A006CB2BA /* TPSignupViewController.m in Sources */,
+				2CE4C901186281F100751A30 /* UIAlertView+Blocks.m in Sources */,
+				2CE4C8ED186280D000751A30 /* TPLocationManager.m in Sources */,
 				2C81A509185905FF006CB2BA /* TPMainMapViewController.m in Sources */,
 				2C81A4C218590295006CB2BA /* GKImageCropper.m in Sources */,
 				2C81A4D018590295006CB2BA /* UIViewController+MMDrawerController.m in Sources */,
@@ -682,6 +719,7 @@
 				2CDD4834185A7F7D007928A2 /* TPSettingsViewController.m in Sources */,
 				2C81A4B818590295006CB2BA /* AFNetworkActivityIndicatorManager.m in Sources */,
 				2C81A5011859049A006CB2BA /* TPRootViewController.m in Sources */,
+				2CE4C8FF186281F100751A30 /* RIButtonItem.m in Sources */,
 				2C81A4BC18590295006CB2BA /* UIImageView+AFNetworking.m in Sources */,
 				2C81A5001859049A006CB2BA /* TPLoginViewController.m in Sources */,
 				2C81A4D118590295006CB2BA /* Reachability.m in Sources */,
