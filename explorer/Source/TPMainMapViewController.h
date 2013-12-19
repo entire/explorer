@@ -1,5 +1,5 @@
 //
-//  TPMainViewController.h
+//  TPMainMapViewController.h
 //  explorer
 //
 //  Created by Kosuke Hata on 12/5/13.
@@ -10,7 +10,7 @@
 #import <MapKit/MapKit.h>
 #import "KHButton.h"
 
-@interface TPMainViewController : KHViewController <MKMapViewDelegate, KHButtonDelegate>
+@interface TPMainMapViewController : KHViewController <MKMapViewDelegate, KHButtonDelegate>
 
 @property (nonatomic, strong) MKMapView *mapView;
 

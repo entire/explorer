@@ -10,8 +10,8 @@
 #import "UIColor+addVeryLightGray.h"
 #import "KHButton.h"
 #import "TPProfileViewController.h"
-#import "TPAboutViewController.h"
-#import "TPMainViewController.h"
+#import "TPSettingsViewController.h"
+#import "TPMainMapViewController.h"
 #import "UIViewController+MMDrawerController.h"
 
 @interface TPMenuViewController ()
@@ -24,9 +24,9 @@
     NSArray *images;
     
     UINavigationController *nav;
-    TPMainViewController *vc1;
+    TPMainMapViewController *vc1;
     TPProfileViewController *vc2;
-    TPAboutViewController *vc3;
+    TPSettingsViewController *vc3;
 }
 
 - (void)loadView
@@ -58,11 +58,11 @@
     [super viewDidLoad];
 	
     // Do any additional setup after loading the view.
-    titles = @[@"Map",@"Everyone",@"About"];
+    titles = @[@"Map",@"Everyone",@"Settings"];
     
     UIImage *img1 = [UIImage imageNamed:@"map"];
     UIImage *img2 = [UIImage imageNamed:@"users"];
-    UIImage *img3 = [UIImage imageNamed:@"about"];
+    UIImage *img3 = [UIImage imageNamed:@"settings"];
     images = @[img1, img2, img3];
 }
 
@@ -119,7 +119,7 @@
         
         if (indexPath.row == 0) {
             if (vc1 == nil) {
-                vc1 = [[TPMainViewController alloc] init];
+                vc1 = [[TPMainMapViewController alloc] init];
             }
             [nav setViewControllers:@[vc1]];
             
@@ -131,7 +131,7 @@
             
         } else if (indexPath.row == 2) {
             if (vc3 == nil) {
-                vc3 = [[TPAboutViewController alloc] init];
+                vc3 = [[TPSettingsViewController alloc] init];
             }
             [nav setViewControllers:@[vc3]];
         }

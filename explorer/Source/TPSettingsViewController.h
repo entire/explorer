@@ -1,5 +1,5 @@
 //
-//  TPAboutViewController.h
+//  TPSettingsViewController.h
 //  explorer
 //
 //  Created by Kosuke Hata on 12/11/13.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TPAboutViewController : UIViewController
+@interface TPSettingsViewController : UIViewController
 
 @end

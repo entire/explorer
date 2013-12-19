@@ -1,19 +1,20 @@
 //
-//  TPAboutViewController.m
+//  TPSettingsViewController.m
 //  explorer
 //
 //  Created by Kosuke Hata on 12/11/13.
 //  Copyright (c) 2013 topiary. All rights reserved.
 //
 
-#import "TPAboutViewController.h"
+#import "TPSettingsViewController.h"
 #import "UIViewController+MMDrawerController.h"
+#import <Parse/Parse.h>
 
-@interface TPAboutViewController ()
+@interface TPSettingsViewController ()
 
 @end
 
-@implementation TPAboutViewController
+@implementation TPSettingsViewController
 
 {
     BOOL drawerIsOpen;
@@ -33,12 +34,15 @@
     
     self.view.backgroundColor = [UIColor whiteColor];
     self.navigationItem.hidesBackButton = YES;
-    self.navigationItem.title = @"About";
+    self.navigationItem.title = @"Settings";
     
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"menu_icon"]
                                                                              style:UIBarButtonItemStylePlain
                                                                             target:self
                                                                             action:@selector(openMenu:)];
+    
+    UIBarButtonItem *rightbutton = [[UIBarButtonItem alloc] initWithTitle:@"log out" style:UIBarButtonItemStylePlain target:self action:@selector(logout:)];
+    self.navigationItem.rightBarButtonItem = rightbutton;
     
 }
 
@@ -61,6 +65,14 @@
         }];
     }
 }
+
+- (void)logout:(id)sender
+{
+    [PFUser logOut];
+    [self.mm_drawerController.navigationController popToRootViewControllerAnimated:YES];
+}
+
+
 
 - (void)didReceiveMemoryWarning
 {

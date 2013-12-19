@@ -10,7 +10,7 @@
 #import "EAIntroView.h"
 #import "UIViewController+MMDrawerController.h"
 #import "MMDrawerController.h"
-#import "TPMainViewController.h"
+#import "TPMainMapViewController.h"
 #import "KHButton.h"
 #import "MMDrawerVisualState.h"
 #import <Parse/Parse.h>
@@ -106,7 +106,7 @@
         NSLog(@"RootVC - viewDidAppear and user is logged in!");
         self.navigationController.navigationBarHidden = YES;
         
-        TPMainViewController *vc = [[TPMainViewController alloc] init];
+        TPMainMapViewController *vc = [[TPMainMapViewController alloc] init];
         UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
         TPMenuViewController *menu = [[TPMenuViewController alloc] init];
         
