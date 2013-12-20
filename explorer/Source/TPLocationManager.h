@@ -27,6 +27,7 @@
 - (void)start;
 - (void)stop;
 
+- (CLLocation *)getLocation;
 - (void)getLocationWithCompletion:(void (^)(CLLocation *))completionBlock;
 - (void)pushLocationToServer:(CLLocation *)location withCompletion:(void (^)(CLLocation *location, PFObject *object))completionBlock;
 

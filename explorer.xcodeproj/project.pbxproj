@@ -84,6 +84,18 @@
 		2C883AEE18638F380045FE55 /* REMenuContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C883AE718638F380045FE55 /* REMenuContainerView.m */; };
 		2C883AEF18638F380045FE55 /* REMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C883AE918638F380045FE55 /* REMenuItem.m */; };
 		2C883AF018638F380045FE55 /* REMenuItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C883AEB18638F380045FE55 /* REMenuItemView.m */; };
+		2C883B0D18639E210045FE55 /* TPAddNewPlaceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C883B0C18639E210045FE55 /* TPAddNewPlaceViewController.m */; };
+		2C883B1018639E6A0045FE55 /* add.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C883B0E18639E6A0045FE55 /* add.png */; };
+		2C883B1118639E6A0045FE55 /* add@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C883B0F18639E6A0045FE55 /* add@2x.png */; };
+		2C883B1618639FA30045FE55 /* checkmark_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C883B1418639FA30045FE55 /* checkmark_icon.png */; };
+		2C883B1718639FA30045FE55 /* checkmark_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C883B1518639FA30045FE55 /* checkmark_icon@2x.png */; };
+		2C883B1D1863A0C50045FE55 /* cancel_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C883B1C1863A0C50045FE55 /* cancel_icon@2x.png */; };
+		2C883B201863A8C70045FE55 /* TPPlace.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C883B1F1863A8C70045FE55 /* TPPlace.m */; };
+		2C883B231863A9180045FE55 /* TPPlaceStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C883B221863A9180045FE55 /* TPPlaceStore.m */; };
+		2C883B2A1863D0050045FE55 /* TPMapOverlay.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C883B291863D0050045FE55 /* TPMapOverlay.m */; };
+		2C883B2D1863D0680045FE55 /* TPMapOverlayRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C883B2C1863D0680045FE55 /* TPMapOverlayRenderer.m */; };
+		2C883B301863D0E70045FE55 /* target.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C883B2E1863D0E70045FE55 /* target.png */; };
+		2C883B311863D0E70045FE55 /* target@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C883B2F1863D0E70045FE55 /* target@2x.png */; };
 		2CDD482C185A7EEB007928A2 /* TPMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CDD482B185A7EEB007928A2 /* TPMenuViewController.m */; };
 		2CDD4833185A7F7D007928A2 /* TPProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CDD4830185A7F7D007928A2 /* TPProfileViewController.m */; };
 		2CDD4834185A7F7D007928A2 /* TPSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CDD4832185A7F7D007928A2 /* TPSettingsViewController.m */; };
@@ -103,7 +115,7 @@
 		2C47BE54186173EB0016871F /* users.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = users.png; sourceTree = "<group>"; };
 		2C47BE55186173EB0016871F /* users@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "users@2x.png"; sourceTree = "<group>"; };
 		2C47BE5E186173F00016871F /* menu_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu_icon@2x.png"; sourceTree = "<group>"; };
-		2C47BE6418617C9A0016871F /* ParseAppIDAndKeys.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParseAppIDAndKeys.h; sourceTree = "<group>"; };
+		2C47BE6418617C9A0016871F /* AppIDAndKeys.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppIDAndKeys.h; sourceTree = "<group>"; };
 		2C81A4331858FBEE006CB2BA /* explorer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = explorer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C81A4361858FBEE006CB2BA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		2C81A4381858FBEE006CB2BA /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -225,6 +237,23 @@
 		2C883AE918638F380045FE55 /* REMenuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REMenuItem.m; sourceTree = "<group>"; };
 		2C883AEA18638F380045FE55 /* REMenuItemView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REMenuItemView.h; sourceTree = "<group>"; };
 		2C883AEB18638F380045FE55 /* REMenuItemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REMenuItemView.m; sourceTree = "<group>"; };
+		2C883B0B18639E210045FE55 /* TPAddNewPlaceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPAddNewPlaceViewController.h; sourceTree = "<group>"; };
+		2C883B0C18639E210045FE55 /* TPAddNewPlaceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPAddNewPlaceViewController.m; sourceTree = "<group>"; };
+		2C883B0E18639E6A0045FE55 /* add.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = add.png; sourceTree = "<group>"; };
+		2C883B0F18639E6A0045FE55 /* add@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "add@2x.png"; sourceTree = "<group>"; };
+		2C883B1418639FA30045FE55 /* checkmark_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checkmark_icon.png; sourceTree = "<group>"; };
+		2C883B1518639FA30045FE55 /* checkmark_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "checkmark_icon@2x.png"; sourceTree = "<group>"; };
+		2C883B1C1863A0C50045FE55 /* cancel_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cancel_icon@2x.png"; sourceTree = "<group>"; };
+		2C883B1E1863A8C70045FE55 /* TPPlace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPPlace.h; sourceTree = "<group>"; };
+		2C883B1F1863A8C70045FE55 /* TPPlace.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPPlace.m; sourceTree = "<group>"; };
+		2C883B211863A9180045FE55 /* TPPlaceStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPPlaceStore.h; sourceTree = "<group>"; };
+		2C883B221863A9180045FE55 /* TPPlaceStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPPlaceStore.m; sourceTree = "<group>"; };
+		2C883B281863D0050045FE55 /* TPMapOverlay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPMapOverlay.h; sourceTree = "<group>"; };
+		2C883B291863D0050045FE55 /* TPMapOverlay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPMapOverlay.m; sourceTree = "<group>"; };
+		2C883B2B1863D0680045FE55 /* TPMapOverlayRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPMapOverlayRenderer.h; sourceTree = "<group>"; };
+		2C883B2C1863D0680045FE55 /* TPMapOverlayRenderer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPMapOverlayRenderer.m; sourceTree = "<group>"; };
+		2C883B2E1863D0E70045FE55 /* target.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = target.png; sourceTree = "<group>"; };
+		2C883B2F1863D0E70045FE55 /* target@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "target@2x.png"; sourceTree = "<group>"; };
 		2CDD482A185A7EEB007928A2 /* TPMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPMenuViewController.h; sourceTree = "<group>"; };
 		2CDD482B185A7EEB007928A2 /* TPMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPMenuViewController.m; sourceTree = "<group>"; };
 		2CDD482F185A7F7D007928A2 /* TPProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPProfileViewController.h; sourceTree = "<group>"; };
@@ -301,6 +330,8 @@
 			children = (
 				2C81A505185905FF006CB2BA /* TPMainMapViewController.h */,
 				2C81A506185905FF006CB2BA /* TPMainMapViewController.m */,
+				2C883B0B18639E210045FE55 /* TPAddNewPlaceViewController.h */,
+				2C883B0C18639E210045FE55 /* TPAddNewPlaceViewController.m */,
 			);
 			name = "Main Map";
 			sourceTree = "<group>";
@@ -308,7 +339,7 @@
 		2C81A42A1858FBEE006CB2BA = {
 			isa = PBXGroup;
 			children = (
-				2C47BE6418617C9A0016871F /* ParseAppIDAndKeys.h */,
+				2C47BE6418617C9A0016871F /* AppIDAndKeys.h */,
 				2C81A43D1858FBEE006CB2BA /* Supporting Files */,
 				2C81A4F61859048D006CB2BA /* Source */,
 				2C81A50B185909E7006CB2BA /* Assets */,
@@ -543,6 +574,10 @@
 		2C81A504185904A7006CB2BA /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				2C883B281863D0050045FE55 /* TPMapOverlay.h */,
+				2C883B291863D0050045FE55 /* TPMapOverlay.m */,
+				2C883B2B1863D0680045FE55 /* TPMapOverlayRenderer.h */,
+				2C883B2C1863D0680045FE55 /* TPMapOverlayRenderer.m */,
 				2C81A4FC1859049A006CB2BA /* TPSignupView.h */,
 				2C81A4FD1859049A006CB2BA /* TPSIgnupView.m */,
 			);
@@ -552,6 +587,13 @@
 		2C81A50B185909E7006CB2BA /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				2C883B2E1863D0E70045FE55 /* target.png */,
+				2C883B2F1863D0E70045FE55 /* target@2x.png */,
+				2C883B1C1863A0C50045FE55 /* cancel_icon@2x.png */,
+				2C883B1418639FA30045FE55 /* checkmark_icon.png */,
+				2C883B1518639FA30045FE55 /* checkmark_icon@2x.png */,
+				2C883B0E18639E6A0045FE55 /* add.png */,
+				2C883B0F18639E6A0045FE55 /* add@2x.png */,
 				2C883ADD18638EAF0045FE55 /* more.png */,
 				2C883ADE18638EAF0045FE55 /* more@2x.png */,
 				2C883AD9186389BE0045FE55 /* location.png */,
@@ -601,6 +643,10 @@
 				2CE4C8EC186280D000751A30 /* TPLocationManager.m */,
 				2CE4C8E818627ABA00751A30 /* TPGeoPointAnnotation.h */,
 				2CE4C8E918627ABA00751A30 /* TPGeoPointAnnotation.m */,
+				2C883B211863A9180045FE55 /* TPPlaceStore.h */,
+				2C883B221863A9180045FE55 /* TPPlaceStore.m */,
+				2C883B1E1863A8C70045FE55 /* TPPlace.h */,
+				2C883B1F1863A8C70045FE55 /* TPPlace.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -702,10 +748,15 @@
 			files = (
 				2C883ADF18638EAF0045FE55 /* more.png in Resources */,
 				2C81A51D18590DD5006CB2BA /* TitilliumTextNormal.ttf in Resources */,
+				2C883B1D1863A0C50045FE55 /* cancel_icon@2x.png in Resources */,
 				2C81A51318590CA2006CB2BA /* 1@2x.png in Resources */,
+				2C883B1718639FA30045FE55 /* checkmark_icon@2x.png in Resources */,
 				2C81A4411858FBEE006CB2BA /* InfoPlist.strings in Resources */,
 				2C883ADC186389BE0045FE55 /* location@2x.png in Resources */,
+				2C883B311863D0E70045FE55 /* target@2x.png in Resources */,
+				2C883B1618639FA30045FE55 /* checkmark_icon.png in Resources */,
 				2CE4C8E31862717F00751A30 /* settings@2x.png in Resources */,
+				2C883B1018639E6A0045FE55 /* add.png in Resources */,
 				2C81A51B18590DD5006CB2BA /* TitilliumTextLight.ttf in Resources */,
 				2C47BE5B186173EB0016871F /* users@2x.png in Resources */,
 				2C47BE58186173EB0016871F /* map.png in Resources */,
@@ -713,6 +764,7 @@
 				2C47BE5A186173EB0016871F /* users.png in Resources */,
 				2C81A51518590CA2006CB2BA /* 3@2x.png in Resources */,
 				2C883AE018638EAF0045FE55 /* more@2x.png in Resources */,
+				2C883B301863D0E70045FE55 /* target.png in Resources */,
 				2C47BE5F186173F00016871F /* menu_icon@2x.png in Resources */,
 				2C883ADB186389BE0045FE55 /* location.png in Resources */,
 				2CE4C8E21862717F00751A30 /* settings.png in Resources */,
@@ -720,6 +772,7 @@
 				2C81A51C18590DD5006CB2BA /* TitilliumTextMedium.ttf in Resources */,
 				2C47BE59186173EB0016871F /* map@2x.png in Resources */,
 				2C81A51418590CA2006CB2BA /* 2@2x.png in Resources */,
+				2C883B1118639E6A0045FE55 /* add@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -743,6 +796,7 @@
 				2CE4C900186281F100751A30 /* UIActionSheet+Blocks.m in Sources */,
 				2C81A4CC18590295006CB2BA /* KHViewController.m in Sources */,
 				2C81A4C018590295006CB2BA /* EAIntroPage.m in Sources */,
+				2C883B2A1863D0050045FE55 /* TPMapOverlay.m in Sources */,
 				2CDD4833185A7F7D007928A2 /* TPProfileViewController.m in Sources */,
 				2C883AEE18638F380045FE55 /* REMenuContainerView.m in Sources */,
 				2C81A4C818590295006CB2BA /* UIImage+RoundedCorner.m in Sources */,
@@ -757,10 +811,13 @@
 				2C81A509185905FF006CB2BA /* TPMainMapViewController.m in Sources */,
 				2C81A4C218590295006CB2BA /* GKImageCropper.m in Sources */,
 				2C81A4D018590295006CB2BA /* UIViewController+MMDrawerController.m in Sources */,
+				2C883B0D18639E210045FE55 /* TPAddNewPlaceViewController.m in Sources */,
 				2C81A4CD18590295006CB2BA /* MMDrawerBarButtonItem.m in Sources */,
 				2C81A4B718590295006CB2BA /* AFJSONRequestOperation.m in Sources */,
+				2C883B231863A9180045FE55 /* TPPlaceStore.m in Sources */,
 				2C81A4BA18590295006CB2BA /* AFURLConnectionOperation.m in Sources */,
 				2C81A4471858FBEE006CB2BA /* TPAppDelegate.m in Sources */,
+				2C883B2D1863D0680045FE55 /* TPMapOverlayRenderer.m in Sources */,
 				2C81A4BB18590295006CB2BA /* AFXMLRequestOperation.m in Sources */,
 				2CDD482C185A7EEB007928A2 /* TPMenuViewController.m in Sources */,
 				2C81A4431858FBEE006CB2BA /* main.m in Sources */,
@@ -778,6 +835,7 @@
 				2C81A5001859049A006CB2BA /* TPLoginViewController.m in Sources */,
 				2C81A4D118590295006CB2BA /* Reachability.m in Sources */,
 				2C81A4BE18590295006CB2BA /* NSString+TimeFormatting.m in Sources */,
+				2C883B201863A8C70045FE55 /* TPPlace.m in Sources */,
 				2C81A4B418590295006CB2BA /* AFHTTPClient.m in Sources */,
 				2C81A4CA18590295006CB2BA /* KHButton.m in Sources */,
 				2C81A4C718590295006CB2BA /* UIImage+Rotate.m in Sources */,

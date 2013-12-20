@@ -9,11 +9,12 @@
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
 #import "KHButton.h"
+#import "TPAddNewPlaceViewController.h"
 #import "TPLocationManager.h"
 
 @class REMenu;
 
-@interface TPMainMapViewController : KHViewController <MKMapViewDelegate, KHButtonDelegate, TPLocationManagerDelegate>
+@interface TPMainMapViewController : KHViewController <MKMapViewDelegate, KHButtonDelegate, TPLocationManagerDelegate, TPAddNewPlaceViewControllerDelegate>
 
 @property (nonatomic, strong) MKMapView *mapView;
 @property (nonatomic, strong) CLLocation *currentLocation;

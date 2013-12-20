@@ -8,7 +8,7 @@
 
 #import "TPAppDelegate.h"
 #import <Parse/Parse.h>
-#import "ParseAppIDAndKeys.h"
+#import "AppIDAndKeys.h"
 #import "TPRootViewController.h"
 #import "TPLocationManager.h"
 

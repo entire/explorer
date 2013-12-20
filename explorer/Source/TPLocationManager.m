@@ -59,6 +59,14 @@
     }
 }
 
+- (CLLocation *)getLocation
+{
+    if (self.currentLocation != nil)
+        return self.currentLocation;
+    
+    return nil;
+}
+
 - (void)getLocationWithCompletion:(void (^)(CLLocation *))completionBlock
 {
     if (CLLocationCoordinate2DIsValid(self.currentLocation.coordinate)) {
@@ -86,7 +94,7 @@
 	// Configure the new event with information from the location.
 	CLLocationCoordinate2D coordinate = [location coordinate];
     PFGeoPoint *geoPoint = [PFGeoPoint geoPointWithLatitude:coordinate.latitude longitude:coordinate.longitude];
-    PFObject *object = [PFObject objectWithClassName:@"Location"];
+    PFObject *object = [PFObject objectWithClassName:@"Places"];
     [object setObject:geoPoint forKey:@"location"];
     [object setObject:[PFUser currentUser] forKey:@"user"];
     [object setACL:ACL];

@@ -12,8 +12,11 @@
 #import "UIViewController+MMDrawerController.h"
 #import "RIButtonItem.h"
 #import "UIAlertView+Blocks.h"
+#import "TPMapOverlay.h"
+#import "TPMapOverlayRenderer.h"
 #import "TPUserManager.h"
 #import "REMenu.h"
+#import "TPAddNewPlaceViewController.h"
 
 @interface TPMainMapViewController ()
 
@@ -23,7 +26,6 @@
 {
     BOOL drawerIsOpen;
     BOOL locationWasFound;
-    BOOL dropdownIsOpen;
 }
 
 - (id)init
@@ -32,7 +34,6 @@
     if (self) {
         locationWasFound = NO;
         drawerIsOpen = NO;
-        dropdownIsOpen = NO;
     }
     return self;
 }
@@ -43,7 +44,7 @@
     
     self.mapView = [[MKMapView alloc] initWithFrame:[KHBase getCurrentCGRect]];
     [self.mapView setShowsUserLocation:YES];
-    [self.mapView setMapType:MKMapTypeStandard];
+    [self.mapView setMapType:MKMapTypeHybrid];
     [self.mapView setZoomEnabled:YES];
     [self.mapView setScrollEnabled:YES];
     self.mapView.delegate = self;
@@ -70,12 +71,12 @@
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"menu_icon"]
                                                                              style:UIBarButtonItemStylePlain
                                                                             target:self
-                                                                            action:@selector(openSideMenu:)];
+                                                                            action:@selector(menuButtonPressed:)];
     
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"more"]
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"add"]
                                                                               style:UIBarButtonItemStylePlain
                                                                              target:self
-                                                                             action:@selector(openDropdownMenu:)];
+                                                                             action:@selector(addNewPlace:)];
 
 
     // fetch objects
@@ -94,6 +95,10 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    
+    TPMapOverlay *mapOverlay = [[TPMapOverlay alloc] init];
+    [self.mapView addOverlay:mapOverlay];
+
     [self centerMapViewToCurrentLocation];
 }
 
@@ -129,6 +134,7 @@
     span.latitudeDelta = 0.01;
     span.longitudeDelta = 0.01;
     
+    
     region.span = span;
     region.center = location;
     [self.mapView setRegion:region animated:YES];
@@ -137,7 +143,7 @@
 
 #pragma mark - Target Action Methods
 
-- (void)openSideMenu:(id)sender
+- (void)menuButtonPressed:(id)sender
 {
     if (!drawerIsOpen) {
         [self.mm_drawerController openDrawerSide:MMDrawerSideLeft animated:YES completion:^(BOOL finished) {
@@ -150,38 +156,12 @@
     }
 }
 
-- (void)openDropdownMenu:(id)sender
+- (void)addNewPlace:(id)sender
 {
-    if (!dropdownIsOpen) {
-        
-        REMenuItem *users = [[REMenuItem alloc] initWithTitle:@"Users"
-                                                           subtitle:nil
-                                                              image:[UIImage imageNamed:@"users"]
-                                                   highlightedImage:nil
-                                                             action:^(REMenuItem *item) {
-                                                                 NSLog(@"Item: %@", item);
-                                                             }];
-        
-        REMenuItem *settings = [[REMenuItem alloc] initWithTitle:@"Settings"
-                                                            subtitle:nil
-                                                               image:[UIImage imageNamed:@"settings"]
-                                                    highlightedImage:nil
-                                                              action:^(REMenuItem *item) {
-                                                                  NSLog(@"Item: %@", item);
-                                                              }];
-        
-        
-        self.menu = [[REMenu alloc] initWithItems:@[users, settings]];
-        [self.menu showFromNavigationController:self.navigationController];
-
-        dropdownIsOpen = YES;
-        
-    } else {
-        [self.menu closeWithCompletion:^{
-            NSLog(@"dropdown closed!");
-            dropdownIsOpen = NO;
-        }];
-    }
+    TPAddNewPlaceViewController *vc = [[TPAddNewPlaceViewController alloc] init];
+    vc.delegate = self;
+    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
+    [self presentViewController:nav animated:YES completion:nil];
 }
 
 
@@ -230,6 +210,14 @@
     //    [self centerMapViewToCurrentLocation];
 }
 
+- (MKOverlayRenderer *)mapView:(MKMapView *)mapView rendererForOverlay:(id<MKOverlay>)overlay
+{
+    TPMapOverlay *mapOverlay = (TPMapOverlay *)overlay;
+    TPMapOverlayRenderer *mapOverlayRenderer = [[TPMapOverlayRenderer alloc] initWithOverlay:mapOverlay];
+    
+    return mapOverlayRenderer;
+}
+
 #pragma mark - gesture handler
 
 
@@ -239,6 +227,7 @@
         return;
     }
     
+    /*
     CGPoint touchPoint = [gestureRecognizer locationInView:self.mapView];
     CLLocationCoordinate2D coordinate = [self.mapView convertPoint:touchPoint toCoordinateFromView:self.mapView];
     CLLocation *location = [[CLLocation alloc] initWithLatitude:coordinate.latitude longitude:coordinate.longitude];
@@ -250,12 +239,23 @@
                                         otherButtonItems:[RIButtonItem itemWithLabel:@"Yes" action:^{
         [[TPLocationManager sharedLocation] pushLocationToServer:location
                                                   withCompletion:^(CLLocation *yourLocaiton, PFObject *object) {
-            [self addAnnotationsWithObject:object];
+             PFUser *holder = object[@"user"];
+             NSString *objectId = holder.objectId;
+             PFUser *user = [[TPUserManager sharedStore] getUserFromLocal:objectId];
+             
+             TPGeoPointAnnotation *annotation = [[TPGeoPointAnnotation alloc] initWithObject:object andUsername:user.username];
+             [self.mapView addAnnotation:annotation];
         }];
         
     }], nil];
-    [av show];
-    
+    [av show];*/
+}
+
+#pragma mark - TPAddNewPlace ViewController delegate method
+
+- (void)userClickedOk:(TPGeoPointAnnotation *)annotation
+{
+    [self.mapView addAnnotation:annotation];
 }
 
 @end

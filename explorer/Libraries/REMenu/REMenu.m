@@ -52,7 +52,7 @@
 - (id)init
 {
     if ((self = [super init])) {
-        self.imageAlignment = REMenuImageAlignmentLeft;
+        self.imageAlignment = REMenuImageAlignmentRight;
         self.closeOnSelection = YES;
         self.itemHeight = 48.0;
         self.separatorHeight = 2.0;
@@ -60,18 +60,18 @@
         
         self.textOffset = CGSizeMake(0, 0);
         self.subtitleTextOffset = CGSizeMake(0, 0);
-        self.font = [UIFont boldSystemFontOfSize:21.0];
+        self.font = [UIFont boldSystemFontOfSize:17.0];
         self.subtitleFont = [UIFont systemFontOfSize:14.0];
         
         self.backgroundColor = [UIColor colorWithRed:53/255.0 green:53/255.0 blue:52/255.0 alpha:1.0];
-        self.separatorColor = [UIColor colorWithPatternImage:self.separatorImage];
+        self.separatorColor = [UIColor clearColor];
         self.textColor = [UIColor colorWithRed:128/255.0 green:126/255.0 blue:124/255.0 alpha:1.0];
-        self.textShadowColor = [UIColor blackColor];
-        self.textShadowOffset = CGSizeMake(0, -1.0);
+        self.textShadowColor = [UIColor clearColor];
+        self.textShadowOffset = CGSizeMake(0, 0);
         self.textAlignment = NSTextAlignmentCenter;
         
         self.highlightedBackgroundColor = [UIColor colorWithRed:28/255.0 green:28/255.0 blue:27/255.0 alpha:1.0];
-        self.highlightedSeparatorColor = [UIColor colorWithRed:28/255.0 green:28/255.0 blue:27/255.0 alpha:1.0];
+        self.highlightedSeparatorColor = [UIColor clearColor];
         self.highlightedTextColor = [UIColor colorWithRed:128/255.0 green:126/255.0 blue:124/255.0 alpha:1.0];
         self.highlightedTextShadowColor = [UIColor blackColor];
         self.highlightedTextShadowOffset = CGSizeMake(0, -1.0);
@@ -84,8 +84,8 @@
         self.subtitleHighlightedTextShadowOffset = CGSizeMake(0, -1.0);
         self.subtitleTextAlignment = NSTextAlignmentCenter;
         
-        self.borderWidth = 1.0;
-        self.borderColor =  [UIColor colorWithRed:28/255.0 green:28/255.0 blue:27/255.0 alpha:1.0];
+        self.borderWidth = 0.5;
+        self.borderColor =  [UIColor colorWithRed:168/255.0 green:168/255.0 blue:168/255.0 alpha:1.0];
         self.animationDuration = 0.3;
         self.bounce = YES;
         self.bounceAnimationDuration = 0.2;
@@ -111,7 +111,6 @@
     self.isAnimating = YES;
     
     // Create views
-    //
     self.containerView = ({
         REMenuContainerView *view = [[REMenuContainerView alloc] init];
         view.clipsToBounds = YES;
