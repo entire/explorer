@@ -51,6 +51,10 @@
     
     [view addSubview:self.mapView];
     
+    UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(144.5, 300, 30, 30)];
+    imageView.image = [UIImage imageNamed:@"target"];
+    [view addSubview:imageView];
+    
     self.view = view;
 }
 

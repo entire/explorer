@@ -11,23 +11,20 @@
 
 @implementation TPMapOverlay
 
--(CLLocationCoordinate2D)coordinate
+- (CLLocationCoordinate2D)coordinate
 {
-    return CLLocationCoordinate2DMake(48.85883, 2.2945);
+    CLLocation *location = [[TPLocationManager sharedLocation] getLocation];
+    CLLocationCoordinate2D coord1 = location.coordinate;
+
+    return coord1;
 }
 
 - (MKMapRect)boundingMapRect
 {
-    CLLocation *location = [[TPLocationManager sharedLocation] getLocation];
-    CLLocationCoordinate2D coords = location.coordinate;
     
-    MKMapPoint upperLeft   = MKMapPointForCoordinate(CLLocationCoordinate2DMake(coords.latitude + 0.01, coords.longitude + 0.01));
-    MKMapPoint upperRight  = MKMapPointForCoordinate(CLLocationCoordinate2DMake(coords.latitude - 0.01, coords.longitude + 0.01));
-    MKMapPoint bottomLeft  = MKMapPointForCoordinate(CLLocationCoordinate2DMake(coords.latitude - 0.01, coords.longitude - 0.01));
+    MKMapPoint upperLeft = MKMapPointForCoordinate(self.coordinate);
     
-    MKMapRect bounds = MKMapRectMake(upperLeft.x, upperLeft.y, fabs(upperLeft.x - upperRight.x), fabs(upperLeft.y - bottomLeft.y));
-    
+    MKMapRect bounds = MKMapRectMake(upperLeft.x, upperLeft.y, 2, 2);
     return bounds;
 }
-
 @end

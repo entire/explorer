@@ -13,7 +13,7 @@
 - (void)drawMapRect:(MKMapRect)mapRect zoomScale:(MKZoomScale)zoomScale inContext:(CGContextRef)ctx
 {
     
-    UIImage *image = [UIImage imageNamed:@"indigo_eiffel_blog.png"];
+    UIImage *image = [UIImage imageNamed:@"target"];
     CGImageRef imageReference = image.CGImage;
     
     MKMapRect theMapRect = [self.overlay boundingMapRect];
