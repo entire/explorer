@@ -44,16 +44,12 @@
     
     self.mapView = [[MKMapView alloc] initWithFrame:[KHBase getCurrentCGRect]];
     [self.mapView setShowsUserLocation:YES];
-    [self.mapView setMapType:MKMapTypeHybrid];
+    [self.mapView setMapType:MKMapTypeStandard];
     [self.mapView setZoomEnabled:YES];
     [self.mapView setScrollEnabled:YES];
     self.mapView.delegate = self;
     
     [view addSubview:self.mapView];
-    
-    UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(144.5, 300, 30, 30)];
-    imageView.image = [UIImage imageNamed:@"target"];
-    [view addSubview:imageView];
     
     self.view = view;
 }

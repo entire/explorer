@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2C1DCE771868D65600C17433 /* TPNewPlaceDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C1DCE761868D65600C17433 /* TPNewPlaceDetailViewController.m */; };
 		2C47BE58186173EB0016871F /* map.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C47BE52186173EB0016871F /* map.png */; };
 		2C47BE59186173EB0016871F /* map@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C47BE53186173EB0016871F /* map@2x.png */; };
 		2C47BE5A186173EB0016871F /* users.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C47BE54186173EB0016871F /* users.png */; };
@@ -110,6 +111,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2C1DCE751868D65600C17433 /* TPNewPlaceDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPNewPlaceDetailViewController.h; sourceTree = "<group>"; };
+		2C1DCE761868D65600C17433 /* TPNewPlaceDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPNewPlaceDetailViewController.m; sourceTree = "<group>"; };
 		2C47BE52186173EB0016871F /* map.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = map.png; sourceTree = "<group>"; };
 		2C47BE53186173EB0016871F /* map@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "map@2x.png"; sourceTree = "<group>"; };
 		2C47BE54186173EB0016871F /* users.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = users.png; sourceTree = "<group>"; };
@@ -332,6 +335,8 @@
 				2C81A506185905FF006CB2BA /* TPMainMapViewController.m */,
 				2C883B0B18639E210045FE55 /* TPAddNewPlaceViewController.h */,
 				2C883B0C18639E210045FE55 /* TPAddNewPlaceViewController.m */,
+				2C1DCE751868D65600C17433 /* TPNewPlaceDetailViewController.h */,
+				2C1DCE761868D65600C17433 /* TPNewPlaceDetailViewController.m */,
 			);
 			name = "Main Map";
 			sourceTree = "<group>";
@@ -825,6 +830,7 @@
 				2C81A4C418590295006CB2BA /* UIImage+FixOrientation.m in Sources */,
 				2C883AED18638F380045FE55 /* REMenu.m in Sources */,
 				2C81A4BD18590295006CB2BA /* NSString+CheckForValidEmail.m in Sources */,
+				2C1DCE771868D65600C17433 /* TPNewPlaceDetailViewController.m in Sources */,
 				2CDD4834185A7F7D007928A2 /* TPSettingsViewController.m in Sources */,
 				2C81A4B818590295006CB2BA /* AFNetworkActivityIndicatorManager.m in Sources */,
 				2C81A5011859049A006CB2BA /* TPRootViewController.m in Sources */,

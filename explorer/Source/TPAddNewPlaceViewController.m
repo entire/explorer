@@ -34,6 +34,15 @@
     UIView *view = [[UIView alloc] initWithFrame:[KHBase getCurrentCGRect]];
     view.backgroundColor = [UIColor whiteColor];
     
+    self.mapView = [[MKMapView alloc] initWithFrame:[KHBase getCurrentCGRect]];
+    [self.mapView setShowsUserLocation:YES];
+    [self.mapView setMapType:MKMapTypeStandard];
+    [self.mapView setZoomEnabled:YES];
+    [self.mapView setScrollEnabled:YES];
+    self.mapView.delegate = self;
+    
+    [view addSubview:self.mapView];
+    
     self.view = view;
 }
 
