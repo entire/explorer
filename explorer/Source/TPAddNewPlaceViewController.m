@@ -27,25 +27,6 @@
     return self;
 }
 
-#pragma mark - UIViewController Life Cycle Methods
-
-- (void)loadView
-{
-    UIView *view = [[UIView alloc] initWithFrame:[KHBase getCurrentCGRect]];
-    view.backgroundColor = [UIColor whiteColor];
-    
-    self.mapView = [[MKMapView alloc] initWithFrame:[KHBase getCurrentCGRect]];
-    [self.mapView setShowsUserLocation:YES];
-    [self.mapView setMapType:MKMapTypeStandard];
-    [self.mapView setZoomEnabled:YES];
-    [self.mapView setScrollEnabled:YES];
-    self.mapView.delegate = self;
-    
-    [view addSubview:self.mapView];
-    
-    self.view = view;
-}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -99,9 +80,9 @@
 {
     NSLog(@"ok!");
     
-    self.location = [[TPLocationManager sharedLocation] getLocation];
+    self.currentLocation = [[TPLocationManager sharedLocation] getLocation];
     
-    [[TPLocationManager sharedLocation] pushLocationToServer:self.location
+    [[TPLocationManager sharedLocation] pushLocationToServer:self.currentLocation
                                               withCompletion:^(CLLocation *yourLocaiton, PFObject *object) {
                                                   
                                                   PFUser *holder = object[@"user"];

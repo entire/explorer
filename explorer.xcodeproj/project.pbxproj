@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2C1DCE771868D65600C17433 /* TPNewPlaceDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C1DCE761868D65600C17433 /* TPNewPlaceDetailViewController.m */; };
+		2C1DCE7D1868E80C00C17433 /* TPMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C1DCE7C1868E80C00C17433 /* TPMapViewController.m */; };
 		2C47BE58186173EB0016871F /* map.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C47BE52186173EB0016871F /* map.png */; };
 		2C47BE59186173EB0016871F /* map@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C47BE53186173EB0016871F /* map@2x.png */; };
 		2C47BE5A186173EB0016871F /* users.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C47BE54186173EB0016871F /* users.png */; };
@@ -113,6 +114,8 @@
 /* Begin PBXFileReference section */
 		2C1DCE751868D65600C17433 /* TPNewPlaceDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPNewPlaceDetailViewController.h; sourceTree = "<group>"; };
 		2C1DCE761868D65600C17433 /* TPNewPlaceDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPNewPlaceDetailViewController.m; sourceTree = "<group>"; };
+		2C1DCE7B1868E80C00C17433 /* TPMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPMapViewController.h; sourceTree = "<group>"; };
+		2C1DCE7C1868E80C00C17433 /* TPMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPMapViewController.m; sourceTree = "<group>"; };
 		2C47BE52186173EB0016871F /* map.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = map.png; sourceTree = "<group>"; };
 		2C47BE53186173EB0016871F /* map@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "map@2x.png"; sourceTree = "<group>"; };
 		2C47BE54186173EB0016871F /* users.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = users.png; sourceTree = "<group>"; };
@@ -331,6 +334,8 @@
 		2C47BE51186173CB0016871F /* Main Map */ = {
 			isa = PBXGroup;
 			children = (
+				2C1DCE7B1868E80C00C17433 /* TPMapViewController.h */,
+				2C1DCE7C1868E80C00C17433 /* TPMapViewController.m */,
 				2C81A505185905FF006CB2BA /* TPMainMapViewController.h */,
 				2C81A506185905FF006CB2BA /* TPMainMapViewController.m */,
 				2C883B0B18639E210045FE55 /* TPAddNewPlaceViewController.h */,
@@ -788,6 +793,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2C1DCE7D1868E80C00C17433 /* TPMapViewController.m in Sources */,
 				2C81A4CF18590295006CB2BA /* MMDrawerVisualState.m in Sources */,
 				2C81A4B518590295006CB2BA /* AFHTTPRequestOperation.m in Sources */,
 				2C81A4C918590295006CB2BA /* KHBase.m in Sources */,

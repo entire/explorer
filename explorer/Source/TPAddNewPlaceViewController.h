@@ -8,6 +8,7 @@
 
 #import "KHViewController.h"
 #import <MapKit/MapKit.h>
+#import "TPMapViewController.h"
 
 @class CLLocation;
 @class TPGeoPointAnnotation;
@@ -18,9 +19,8 @@
 
 @end
 
-@interface TPAddNewPlaceViewController : KHViewController <MKMapViewDelegate>
+@interface TPAddNewPlaceViewController : TPMapViewController <MKMapViewDelegate>
 
-@property (nonatomic, strong) CLLocation *location;
-@property (nonatomic, strong) MKMapView *mapView;
 @property (nonatomic, weak) id <TPAddNewPlaceViewControllerDelegate> delegate;
+
 @end
