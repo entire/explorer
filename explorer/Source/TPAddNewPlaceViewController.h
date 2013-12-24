@@ -20,7 +20,7 @@
 
 @end
 
-@interface TPAddNewPlaceViewController : TPMapViewController <UIGestureRecognizerDelegate, TPDragAnnotationViewDelegate, MKMapViewDelegate,KHButtonDelegate, UITableViewDataSource, UITableViewDelegate>
+@interface TPAddNewPlaceViewController : TPMapViewController <UIGestureRecognizerDelegate, TPDragAnnotationViewDelegate, MKMapViewDelegate,KHButtonDelegate>
 
 @property (nonatomic, weak) id <TPAddNewPlaceViewControllerDelegate> delegate;
 @property (nonatomic, strong) MKPointAnnotation *annotation;
