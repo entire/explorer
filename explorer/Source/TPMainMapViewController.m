@@ -11,6 +11,7 @@
 #import "TPGeoPointAnnotation.h"
 #import "UIViewController+MMDrawerController.h"
 #import "RIButtonItem.h"
+#import "TPMapDisclosureViewController.h"
 #import "UIAlertView+Blocks.h"
 #import "TPMapOverlay.h"
 #import "TPMapOverlayRenderer.h"
@@ -95,7 +96,6 @@
     [self presentViewController:nav animated:YES completion:nil];
 }
 
-
 #pragma mark - KHButton Delegate method
 
 - (void)buttonWasTouchedUpInside:(KHButton *)button
@@ -127,6 +127,12 @@
 - (void)mapView:(MKMapView *)aMapView didUpdateUserLocation:(MKUserLocation *)aUserLocation
 {
     //    [self centerMapViewToCurrentLocation];
+}
+
+- (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control
+{
+    TPMapDisclosureViewController *vc = [[TPMapDisclosureViewController alloc] init];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (MKOverlayRenderer *)mapView:(MKMapView *)mapView rendererForOverlay:(id<MKOverlay>)overlay
