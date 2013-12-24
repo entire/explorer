@@ -20,6 +20,7 @@
 		2C1DCECA1869314C00C17433 /* NSString+CheckForValidEmail.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C1DCEC41869314C00C17433 /* NSString+CheckForValidEmail.m */; };
 		2C1DCECB1869314C00C17433 /* NSString+TimeFormatting.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C1DCEC61869314C00C17433 /* NSString+TimeFormatting.m */; };
 		2C1DCECC1869314C00C17433 /* UIColor+addVeryLightGray.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C1DCEC81869314C00C17433 /* UIColor+addVeryLightGray.m */; };
+		2C1DCF3E186936F600C17433 /* ELCTextFieldCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C1DCF3D186936F600C17433 /* ELCTextFieldCell.m */; };
 		2C47BE58186173EB0016871F /* map.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C47BE52186173EB0016871F /* map.png */; };
 		2C47BE59186173EB0016871F /* map@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C47BE53186173EB0016871F /* map@2x.png */; };
 		2C47BE5A186173EB0016871F /* users.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C47BE54186173EB0016871F /* users.png */; };
@@ -146,6 +147,8 @@
 		2C1DCEC61869314C00C17433 /* NSString+TimeFormatting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+TimeFormatting.m"; sourceTree = "<group>"; };
 		2C1DCEC71869314C00C17433 /* UIColor+addVeryLightGray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+addVeryLightGray.h"; sourceTree = "<group>"; };
 		2C1DCEC81869314C00C17433 /* UIColor+addVeryLightGray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+addVeryLightGray.m"; sourceTree = "<group>"; };
+		2C1DCF3C186936F600C17433 /* ELCTextFieldCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELCTextFieldCell.h; sourceTree = "<group>"; };
+		2C1DCF3D186936F600C17433 /* ELCTextFieldCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELCTextFieldCell.m; sourceTree = "<group>"; };
 		2C47BE52186173EB0016871F /* map.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = map.png; sourceTree = "<group>"; };
 		2C47BE53186173EB0016871F /* map@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "map@2x.png"; sourceTree = "<group>"; };
 		2C47BE54186173EB0016871F /* users.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = users.png; sourceTree = "<group>"; };
@@ -363,6 +366,15 @@
 			path = Categories;
 			sourceTree = "<group>";
 		};
+		2C1DCF3B186936F600C17433 /* ELCTextFieldCell */ = {
+			isa = PBXGroup;
+			children = (
+				2C1DCF3C186936F600C17433 /* ELCTextFieldCell.h */,
+				2C1DCF3D186936F600C17433 /* ELCTextFieldCell.m */,
+			);
+			path = ELCTextFieldCell;
+			sourceTree = "<group>";
+		};
 		2C47BE4F186173BA0016871F /* Root/Signup/Login */ = {
 			isa = PBXGroup;
 			children = (
@@ -464,6 +476,7 @@
 		2C81A467185901E6006CB2BA /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				2C1DCF3B186936F600C17433 /* ELCTextFieldCell */,
 				2C1DCEA218692C9400C17433 /* OCMapView */,
 				2C883AE118638F380045FE55 /* REMenu */,
 				2CE4C8F8186281F100751A30 /* UIAlertViewBlocks */,
@@ -868,6 +881,7 @@
 				2C81A4BA18590295006CB2BA /* AFURLConnectionOperation.m in Sources */,
 				2C81A4471858FBEE006CB2BA /* TPAppDelegate.m in Sources */,
 				2C883B2D1863D0680045FE55 /* TPMapOverlayRenderer.m in Sources */,
+				2C1DCF3E186936F600C17433 /* ELCTextFieldCell.m in Sources */,
 				2C81A4BB18590295006CB2BA /* AFXMLRequestOperation.m in Sources */,
 				2CDD482C185A7EEB007928A2 /* TPMenuViewController.m in Sources */,
 				2C81A4431858FBEE006CB2BA /* main.m in Sources */,

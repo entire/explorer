@@ -11,6 +11,7 @@
 #import "TPLocationManager.h"
 #import "TPDragAnnotationView.h"
 #import "KHButton.h"
+#import "ELCTextFieldCell.h"
 
 @class TPGeoPointAnnotation;
 
@@ -20,13 +21,17 @@
 
 @end
 
-@interface TPAddNewPlaceViewController : TPMapViewController <UIGestureRecognizerDelegate, TPDragAnnotationViewDelegate, MKMapViewDelegate,KHButtonDelegate>
+@interface TPAddNewPlaceViewController : TPMapViewController <UIGestureRecognizerDelegate, TPDragAnnotationViewDelegate, MKMapViewDelegate,KHButtonDelegate, UITableViewDataSource, UITableViewDelegate, ELCTextFieldDelegate>
 
 @property (nonatomic, weak) id <TPAddNewPlaceViewControllerDelegate> delegate;
 @property (nonatomic, strong) MKPointAnnotation *annotation;
 @property (nonatomic, strong) CLLocation *location;
 @property (nonatomic, strong) KHButton *addButton;
 @property (nonatomic, strong) UITableView *tableView;
+@property (nonatomic, strong) NSArray *labels;
+@property (nonatomic, strong) NSArray *placeholders;
+@property (nonatomic, strong) NSString *currentAddress;
+
 
 - (id)initWithLocation:(CLLocation *)location;
 
