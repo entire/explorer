@@ -7,8 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2C1DCE771868D65600C17433 /* TPNewPlaceDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C1DCE761868D65600C17433 /* TPNewPlaceDetailViewController.m */; };
-		2C1DCE7D1868E80C00C17433 /* TPMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C1DCE7C1868E80C00C17433 /* TPMapViewController.m */; };
+		2C1DCE91186920A700C17433 /* TPMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C1DCE90186920A700C17433 /* TPMapViewController.m */; };
+		2C1DCE94186921B100C17433 /* TPAddNewPlaceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C1DCE93186921B100C17433 /* TPAddNewPlaceViewController.m */; };
+		2C1DCE97186921E400C17433 /* TPDragAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C1DCE96186921E400C17433 /* TPDragAnnotationView.m */; };
+		2C1DCE991869227700C17433 /* drag_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C1DCE981869227700C17433 /* drag_icon@2x.png */; };
 		2C47BE58186173EB0016871F /* map.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C47BE52186173EB0016871F /* map.png */; };
 		2C47BE59186173EB0016871F /* map@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C47BE53186173EB0016871F /* map@2x.png */; };
 		2C47BE5A186173EB0016871F /* users.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C47BE54186173EB0016871F /* users.png */; };
@@ -86,7 +88,6 @@
 		2C883AEE18638F380045FE55 /* REMenuContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C883AE718638F380045FE55 /* REMenuContainerView.m */; };
 		2C883AEF18638F380045FE55 /* REMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C883AE918638F380045FE55 /* REMenuItem.m */; };
 		2C883AF018638F380045FE55 /* REMenuItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C883AEB18638F380045FE55 /* REMenuItemView.m */; };
-		2C883B0D18639E210045FE55 /* TPAddNewPlaceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C883B0C18639E210045FE55 /* TPAddNewPlaceViewController.m */; };
 		2C883B1018639E6A0045FE55 /* add.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C883B0E18639E6A0045FE55 /* add.png */; };
 		2C883B1118639E6A0045FE55 /* add@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C883B0F18639E6A0045FE55 /* add@2x.png */; };
 		2C883B1618639FA30045FE55 /* checkmark_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C883B1418639FA30045FE55 /* checkmark_icon.png */; };
@@ -112,10 +113,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		2C1DCE751868D65600C17433 /* TPNewPlaceDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPNewPlaceDetailViewController.h; sourceTree = "<group>"; };
-		2C1DCE761868D65600C17433 /* TPNewPlaceDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPNewPlaceDetailViewController.m; sourceTree = "<group>"; };
-		2C1DCE7B1868E80C00C17433 /* TPMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPMapViewController.h; sourceTree = "<group>"; };
-		2C1DCE7C1868E80C00C17433 /* TPMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPMapViewController.m; sourceTree = "<group>"; };
+		2C1DCE8F186920A700C17433 /* TPMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPMapViewController.h; sourceTree = "<group>"; };
+		2C1DCE90186920A700C17433 /* TPMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPMapViewController.m; sourceTree = "<group>"; };
+		2C1DCE92186921B100C17433 /* TPAddNewPlaceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPAddNewPlaceViewController.h; sourceTree = "<group>"; };
+		2C1DCE93186921B100C17433 /* TPAddNewPlaceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPAddNewPlaceViewController.m; sourceTree = "<group>"; };
+		2C1DCE95186921E400C17433 /* TPDragAnnotationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPDragAnnotationView.h; sourceTree = "<group>"; };
+		2C1DCE96186921E400C17433 /* TPDragAnnotationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPDragAnnotationView.m; sourceTree = "<group>"; };
+		2C1DCE981869227700C17433 /* drag_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "drag_icon@2x.png"; sourceTree = "<group>"; };
 		2C47BE52186173EB0016871F /* map.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = map.png; sourceTree = "<group>"; };
 		2C47BE53186173EB0016871F /* map@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "map@2x.png"; sourceTree = "<group>"; };
 		2C47BE54186173EB0016871F /* users.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = users.png; sourceTree = "<group>"; };
@@ -243,8 +247,6 @@
 		2C883AE918638F380045FE55 /* REMenuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REMenuItem.m; sourceTree = "<group>"; };
 		2C883AEA18638F380045FE55 /* REMenuItemView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REMenuItemView.h; sourceTree = "<group>"; };
 		2C883AEB18638F380045FE55 /* REMenuItemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REMenuItemView.m; sourceTree = "<group>"; };
-		2C883B0B18639E210045FE55 /* TPAddNewPlaceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPAddNewPlaceViewController.h; sourceTree = "<group>"; };
-		2C883B0C18639E210045FE55 /* TPAddNewPlaceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPAddNewPlaceViewController.m; sourceTree = "<group>"; };
 		2C883B0E18639E6A0045FE55 /* add.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = add.png; sourceTree = "<group>"; };
 		2C883B0F18639E6A0045FE55 /* add@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "add@2x.png"; sourceTree = "<group>"; };
 		2C883B1418639FA30045FE55 /* checkmark_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checkmark_icon.png; sourceTree = "<group>"; };
@@ -334,14 +336,12 @@
 		2C47BE51186173CB0016871F /* Main Map */ = {
 			isa = PBXGroup;
 			children = (
-				2C1DCE7B1868E80C00C17433 /* TPMapViewController.h */,
-				2C1DCE7C1868E80C00C17433 /* TPMapViewController.m */,
+				2C1DCE8F186920A700C17433 /* TPMapViewController.h */,
+				2C1DCE90186920A700C17433 /* TPMapViewController.m */,
 				2C81A505185905FF006CB2BA /* TPMainMapViewController.h */,
 				2C81A506185905FF006CB2BA /* TPMainMapViewController.m */,
-				2C883B0B18639E210045FE55 /* TPAddNewPlaceViewController.h */,
-				2C883B0C18639E210045FE55 /* TPAddNewPlaceViewController.m */,
-				2C1DCE751868D65600C17433 /* TPNewPlaceDetailViewController.h */,
-				2C1DCE761868D65600C17433 /* TPNewPlaceDetailViewController.m */,
+				2C1DCE92186921B100C17433 /* TPAddNewPlaceViewController.h */,
+				2C1DCE93186921B100C17433 /* TPAddNewPlaceViewController.m */,
 			);
 			name = "Main Map";
 			sourceTree = "<group>";
@@ -590,6 +590,8 @@
 				2C883B2C1863D0680045FE55 /* TPMapOverlayRenderer.m */,
 				2C81A4FC1859049A006CB2BA /* TPSignupView.h */,
 				2C81A4FD1859049A006CB2BA /* TPSIgnupView.m */,
+				2C1DCE95186921E400C17433 /* TPDragAnnotationView.h */,
+				2C1DCE96186921E400C17433 /* TPDragAnnotationView.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -597,6 +599,7 @@
 		2C81A50B185909E7006CB2BA /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				2C1DCE981869227700C17433 /* drag_icon@2x.png */,
 				2C883B2E1863D0E70045FE55 /* target.png */,
 				2C883B2F1863D0E70045FE55 /* target@2x.png */,
 				2C883B1C1863A0C50045FE55 /* cancel_icon@2x.png */,
@@ -783,6 +786,7 @@
 				2C47BE59186173EB0016871F /* map@2x.png in Resources */,
 				2C81A51418590CA2006CB2BA /* 2@2x.png in Resources */,
 				2C883B1118639E6A0045FE55 /* add@2x.png in Resources */,
+				2C1DCE991869227700C17433 /* drag_icon@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -793,7 +797,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2C1DCE7D1868E80C00C17433 /* TPMapViewController.m in Sources */,
 				2C81A4CF18590295006CB2BA /* MMDrawerVisualState.m in Sources */,
 				2C81A4B518590295006CB2BA /* AFHTTPRequestOperation.m in Sources */,
 				2C81A4C918590295006CB2BA /* KHBase.m in Sources */,
@@ -822,7 +825,6 @@
 				2C81A509185905FF006CB2BA /* TPMainMapViewController.m in Sources */,
 				2C81A4C218590295006CB2BA /* GKImageCropper.m in Sources */,
 				2C81A4D018590295006CB2BA /* UIViewController+MMDrawerController.m in Sources */,
-				2C883B0D18639E210045FE55 /* TPAddNewPlaceViewController.m in Sources */,
 				2C81A4CD18590295006CB2BA /* MMDrawerBarButtonItem.m in Sources */,
 				2C81A4B718590295006CB2BA /* AFJSONRequestOperation.m in Sources */,
 				2C883B231863A9180045FE55 /* TPPlaceStore.m in Sources */,
@@ -836,8 +838,10 @@
 				2C81A4C418590295006CB2BA /* UIImage+FixOrientation.m in Sources */,
 				2C883AED18638F380045FE55 /* REMenu.m in Sources */,
 				2C81A4BD18590295006CB2BA /* NSString+CheckForValidEmail.m in Sources */,
-				2C1DCE771868D65600C17433 /* TPNewPlaceDetailViewController.m in Sources */,
 				2CDD4834185A7F7D007928A2 /* TPSettingsViewController.m in Sources */,
+				2C1DCE94186921B100C17433 /* TPAddNewPlaceViewController.m in Sources */,
+				2C1DCE97186921E400C17433 /* TPDragAnnotationView.m in Sources */,
+				2C1DCE91186920A700C17433 /* TPMapViewController.m in Sources */,
 				2C81A4B818590295006CB2BA /* AFNetworkActivityIndicatorManager.m in Sources */,
 				2C81A5011859049A006CB2BA /* TPRootViewController.m in Sources */,
 				2C883AF018638F380045FE55 /* REMenuItemView.m in Sources */,

@@ -63,23 +63,13 @@
     PFQuery *query = [PFQuery queryWithClassName:@"Location"];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         self.places = [NSMutableArray arrayWithArray:objects];
-        [self updatePins];
+        [self addAllPFObjectAnnotations:self.places];
     }];
     
     // adding long press gesture recognizer to mapview
     UILongPressGestureRecognizer *tgr = [[UILongPressGestureRecognizer alloc]initWithTarget:self
                                                                                      action:@selector(handleGesture:)];
     [self.mapView addGestureRecognizer:tgr];
-}
-
-
-#pragma mark - Helper methods
-
-- (void)updatePins
-{
-    for (PFObject *place in self.places) {
-        [self addAnnotationsWithObject:place];
-    }
 }
 
 #pragma mark - Target Action Methods
@@ -99,7 +89,7 @@
 
 - (void)addNewPlace:(id)sender
 {
-    TPAddNewPlaceViewController *vc = [[TPAddNewPlaceViewController alloc] init];
+    TPAddNewPlaceViewController *vc = [[TPAddNewPlaceViewController alloc] initWithLocation:self.currentLocation];
     vc.delegate = self;
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
     [self presentViewController:nav animated:YES completion:nil];

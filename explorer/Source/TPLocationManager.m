@@ -59,21 +59,32 @@
     }
 }
 
-- (CLLocation *)getLocation
+- (void)addLastKnownLocation:(CLLocation *)lastLocation
 {
-    if (self.currentLocation != nil)
-        return self.currentLocation;
+    if (self.lastKnownLocation == nil) {
+        self.lastKnownLocation = [[CLLocation alloc] init];
+    }
     
-    return nil;
+    self.lastKnownLocation = lastLocation;
 }
 
-- (void)getLocationWithCompletion:(void (^)(CLLocation *))completionBlock
+- (CLLocation *)getGPSLocation
 {
-    if (CLLocationCoordinate2DIsValid(self.currentLocation.coordinate)) {
-        completionBlock(self.currentLocation);
+    if (self.currentLocation != nil) {
+        return self.currentLocation;
     } else {
-        completionBlock(nil);
+        return nil;
     }
+}
+
+- (CLLocation *)getLastKnownLocation
+{
+    if (self.lastKnownLocation != nil) {
+        return self.lastKnownLocation;
+    } else {
+        return nil;
+    }
+    
 }
 
 - (void)pushLocationToServer:(CLLocation *)location withCompletion:(void (^)(CLLocation *location, PFObject *object))completionBlock

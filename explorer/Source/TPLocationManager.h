@@ -19,6 +19,7 @@
 
 @interface TPLocationManager : NSObject <CLLocationManagerDelegate>
 
+@property (nonatomic, strong) CLLocation *lastKnownLocation;
 @property (nonatomic, strong) CLLocation *currentLocation;
 @property (nonatomic, weak) id<TPLocationManagerDelegate> delegate;
 
@@ -27,8 +28,11 @@
 - (void)start;
 - (void)stop;
 
-- (CLLocation *)getLocation;
-- (void)getLocationWithCompletion:(void (^)(CLLocation *))completionBlock;
+- (CLLocation *)getGPSLocation;
+- (CLLocation *)getLastKnownLocation;
+
+- (void)addLastKnownLocation:(CLLocation *)lastLocation;
+
 - (void)pushLocationToServer:(CLLocation *)location withCompletion:(void (^)(CLLocation *location, PFObject *object))completionBlock;
 
 @end

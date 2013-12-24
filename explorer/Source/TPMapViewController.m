@@ -7,6 +7,9 @@
 //
 
 #import "TPMapViewController.h"
+#import "TPGeoPointAnnotation.h"
+#import <Parse/Parse.h>
+#import "TPUserManager.h"
 
 @interface TPMapViewController ()
 
@@ -23,7 +26,6 @@
     return self;
 }
 
-#pragma mark - UIViewController Life Cycle Methods
 
 - (void)loadView
 {
@@ -45,9 +47,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+	// Do any additional setup after loading the view.
     
     // delegate setup
     [TPLocationManager sharedLocation].delegate = self;
+
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -67,24 +71,6 @@
     locationWasFound = NO; // reset location
 }
 
-#pragma mark - Helper Methods
-
-- (void)centerMapViewToCurrentLocation
-{
-    CLLocationCoordinate2D location;
-    location.latitude = self.currentLocation.coordinate.latitude;
-    location.longitude = self.currentLocation.coordinate.longitude;
-    
-    MKCoordinateRegion region;
-    MKCoordinateSpan span;
-    span.latitudeDelta = 0.01;
-    span.longitudeDelta = 0.01;
-    
-    region.span = span;
-    region.center = location;
-    [self.mapView setRegion:region animated:YES];
-}
-
 
 #pragma mark - TPLocationManager delegate methods
 
@@ -97,6 +83,52 @@
         locationWasFound = YES;
     }
 }
+
+#pragma mark - Helper Methods
+
+- (void)centerMapViewToCurrentLocation
+{
+    CLLocation *centerLocation;
+    
+    if (!locationWasFound) {
+        centerLocation = [[TPLocationManager sharedLocation] getLastKnownLocation];
+    } else {
+        centerLocation = [[TPLocationManager sharedLocation] getGPSLocation];
+    }
+    
+    CLLocationCoordinate2D location;
+    location.latitude = self.currentLocation.coordinate.latitude;
+    location.longitude = self.currentLocation.coordinate.longitude;
+    
+    MKCoordinateRegion region;
+    MKCoordinateSpan span;
+    span.latitudeDelta = 0.03;
+    span.longitudeDelta = 0.03;
+    
+    region.span = span;
+    region.center = location;
+    [self.mapView setRegion:region animated:YES];
+}
+
+- (void)addAnnotationsWithObject:(PFObject *)object
+{
+    PFUser *holder = object[@"user"];
+    NSString *objectId = holder.objectId;
+    PFUser *user = [[TPUserManager sharedStore] getUserFromLocal:objectId];
+    
+    TPGeoPointAnnotation *annotation = [[TPGeoPointAnnotation alloc] initWithObject:object andUsername:user.username];
+    [self.mapView addAnnotation:annotation];
+}
+
+- (void)addAllPFObjectAnnotations:(NSMutableArray *)pins
+{
+    for (PFObject *pin in pins) {
+        [self addAnnotationsWithObject:pin];
+    }
+}
+
+
+
 
 
 @end

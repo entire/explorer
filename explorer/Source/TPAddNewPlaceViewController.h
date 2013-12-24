@@ -6,11 +6,12 @@
 //  Copyright (c) 2013 topiary. All rights reserved.
 //
 
-#import "KHViewController.h"
-#import <MapKit/MapKit.h>
 #import "TPMapViewController.h"
+#import <MapKit/MapKit.h>
+#import "TPLocationManager.h"
+#import "TPDragAnnotationView.h"
+#import "KHButton.h"
 
-@class CLLocation;
 @class TPGeoPointAnnotation;
 
 @protocol TPAddNewPlaceViewControllerDelegate <NSObject>
@@ -19,8 +20,14 @@
 
 @end
 
-@interface TPAddNewPlaceViewController : TPMapViewController <MKMapViewDelegate>
+@interface TPAddNewPlaceViewController : TPMapViewController <UIGestureRecognizerDelegate, TPDragAnnotationViewDelegate, MKMapViewDelegate,KHButtonDelegate, UITableViewDataSource, UITableViewDelegate>
 
 @property (nonatomic, weak) id <TPAddNewPlaceViewControllerDelegate> delegate;
+@property (nonatomic, strong) MKPointAnnotation *annotation;
+@property (nonatomic, strong) CLLocation *location;
+@property (nonatomic, strong) KHButton *addButton;
+@property (nonatomic, strong) UITableView *tableView;
+
+- (id)initWithLocation:(CLLocation *)location;
 
 @end

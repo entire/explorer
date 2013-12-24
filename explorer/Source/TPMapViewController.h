@@ -7,19 +7,21 @@
 //
 
 #import "KHViewController.h"
-#import <MapKit/MapKit.h>
 #import "TPLocationManager.h"
+#import <MapKit/MapKit.h>
+#import <Parse/Parse.h>
 
-@class CLLocation;
-
-@interface TPMapViewController : KHViewController <MKMapViewDelegate, TPLocationManagerDelegate>
+@interface TPMapViewController : KHViewController <TPLocationManagerDelegate, MKMapViewDelegate>
 {
     BOOL locationWasFound;
 }
 
-@property (nonatomic, strong) CLLocation *currentLocation;
 @property (nonatomic, strong) MKMapView *mapView;
+@property (nonatomic, strong) CLLocation *currentLocation;
 
 - (void)centerMapViewToCurrentLocation;
+- (void)addAnnotationsWithObject:(PFObject *)object;
+- (void)addAllPFObjectAnnotations:(NSMutableArray *)pins;
+
 
 @end

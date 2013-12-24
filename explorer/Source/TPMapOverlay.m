@@ -13,7 +13,7 @@
 
 - (CLLocationCoordinate2D)coordinate
 {
-    CLLocation *location = [[TPLocationManager sharedLocation] getLocation];
+    CLLocation *location = [[TPLocationManager sharedLocation] getGPSLocation];
     CLLocationCoordinate2D coord1 = location.coordinate;
 
     return coord1;
