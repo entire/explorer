@@ -21,12 +21,12 @@
 
 #pragma mark - Initialization
 
-- (id)initWithObject:(PFObject *)aObject andUsername:(NSString *)name {
+- (id)initWithObject:(PFObject *)aObject andUsername:(NSString *)name andTag:(NSString *)tag {
     self = [super init];
     if (self) {
         _object = aObject;
         username = name;
-        
+        self.tag = tag;
         PFGeoPoint *geoPoint = self.object[@"location"];
         [self setGeoPoint:geoPoint];
     }

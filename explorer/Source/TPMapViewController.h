@@ -21,7 +21,7 @@
 
 - (void)centerMapViewToCurrentLocation;
 - (void)addAnnotationsWithObject:(PFObject *)object;
-- (void)addAllPFObjectAnnotations:(NSMutableArray *)pins;
+- (void)addAllPFObjectAnnotations:(NSArray *)pins;
 
 
 @end

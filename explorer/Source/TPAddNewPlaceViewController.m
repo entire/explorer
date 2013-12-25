@@ -72,12 +72,12 @@
     UIColor *color = [UIColor colorWithRed:0.2 green:0.3 blue:0.4 alpha:1.0];
     self.addButton = [[KHButton alloc] initWithButtonSize:size
                                                 withColor:color
-                                                withTitle:@"Add Meeting"];
+                                                withTitle:@"Add Location"];
     self.addButton.frame = CGRectMake(0, self.height-self.barSize, self.width, self.barSize);
     self.addButton.delegate = self;
     [view addSubview:self.addButton];
     
-    self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, self.barSize+self.y_start+160, 320, 210)];
+    self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, self.barSize+self.y_start+160, 320, 245)];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     self.tableView.alpha = 0.0f;
@@ -178,12 +178,14 @@
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - khbutton delegate
+#pragma mark - KHbutton delegate methods
 
 - (void)buttonWasTouchedUpInside:(KHButton *)button
 {
     [self closeMapAndOpenDetailView];
 }
+
+#pragma mark - Open and Close
 
 - (void)closeMapAndOpenDetailView
 {
@@ -223,6 +225,8 @@
     }];
 }
 
+#pragma mark - UITouch Methods
+
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
     UITouch *touch = [[event allTouches] anyObject];
@@ -239,6 +243,8 @@
     }
 }
 
+#pragma mark - address finding methods
+
 - (void)findAddress
 {
     CLGeocoder *geocoder = [[CLGeocoder alloc] init];
@@ -249,7 +255,7 @@
             return;
         }
         CLPlacemark *placemark = placemarks[0];
-        
+        NSLog(@"%@", placemark.addressDictionary);
         self.currentAddress = placemark.addressDictionary[@"Street"];
         self.currentZIP = placemark.addressDictionary[@"ZIP"];
         self.currentCity = placemark.addressDictionary[@"City"];
@@ -273,10 +279,27 @@
     
     NSIndexPath *namePath = [NSIndexPath indexPathForRow:0 inSection:0];
     NSIndexPath *whyPath = [NSIndexPath indexPathForRow:1 inSection:0];
+    NSIndexPath *addressPath = [NSIndexPath indexPathForRow:2 inSection:0];
+    NSIndexPath *citypath = [NSIndexPath indexPathForRow:3 inSection:0];
+    NSIndexPath *statePath = [NSIndexPath indexPathForRow:4 inSection:0];
+    NSIndexPath *codePath = [NSIndexPath indexPathForRow:4 inSection:0];
+    NSIndexPath *countryPath = [NSIndexPath indexPathForRow:4 inSection:0];
+    
     ELCTextFieldCell *nameCell = (ELCTextFieldCell*)[self.tableView cellForRowAtIndexPath:namePath];
     ELCTextFieldCell *whyCell = (ELCTextFieldCell*)[self.tableView cellForRowAtIndexPath:whyPath];
+    ELCTextFieldCell *addCell = (ELCTextFieldCell*)[self.tableView cellForRowAtIndexPath:addressPath];
+    ELCTextFieldCell *cityCell = (ELCTextFieldCell*)[self.tableView cellForRowAtIndexPath:citypath];
+    ELCTextFieldCell *stateCell = (ELCTextFieldCell*)[self.tableView cellForRowAtIndexPath:statePath];
+    ELCTextFieldCell *codeCell = (ELCTextFieldCell*)[self.tableView cellForRowAtIndexPath:codePath];
+    ELCTextFieldCell *countCell = (ELCTextFieldCell*)[self.tableView cellForRowAtIndexPath:countryPath];
+    
     self.nameOfPlace = nameCell.rightTextField.text;
     self.whyInteresting = whyCell.rightTextField.text;
+    self.currentAddress = addCell.rightTextField.text;
+    self.currentCity = cityCell.rightTextField.text;
+    self.currentState = stateCell.rightTextField.text;
+    self.currentZIP = codeCell.rightTextField.text;
+    self.currentCountry = countCell.rightTextField.text;
     
     PFACL *ACL = [PFACL ACL];
     [ACL setWriteAccess:YES forUser:[PFUser currentUser]];
@@ -291,13 +314,15 @@
     PFObject *object = [PFObject objectWithClassName:@"Places"];
     [object setObject:geoPoint forKey:@"location"];
     [object setObject:[PFUser currentUser] forKey:@"user"];
+    
+    [object setObject:self.nameOfPlace forKey:@"nameOfPlace"];
+    [object setObject:self.whyInteresting forKey:@"reasonToVisit"];
     [object setObject:self.currentAddress forKey:@"address"];
     [object setObject:self.currentCity forKey:@"city"];
     [object setObject:self.currentState forKey:@"state"];
     [object setObject:self.currentZIP forKey:@"postalcode"];
     [object setObject:self.currentCountry forKey:@"country"];
-    [object setObject:self.whyInteresting forKey:@"reasonToVisit"];
-    [object setObject:self.nameOfPlace forKey:@"nameOfPlace"];
+    
     
     [object setACL:ACL];
     
@@ -307,7 +332,8 @@
             PFRelation *relation = [user relationforKey:@"Places"];
             [relation addObject:object];
             
-            TPGeoPointAnnotation *annotation = [[TPGeoPointAnnotation alloc] initWithObject:object andUsername:user.username];
+            NSString *tag = object.objectId;
+            TPGeoPointAnnotation *annotation = [[TPGeoPointAnnotation alloc] initWithObject:object andUsername:user.username andTag:tag];
             [self.delegate userClickedOk:annotation];
             
             [self dismissViewControllerAnimated:YES completion:^{
@@ -319,6 +345,7 @@
     }];
 }
 
+#pragma mark - Annotation related methods
 
 - (void)moveAnnotationToCoordinate:(CLLocationCoordinate2D)coordinate
 {

@@ -8,7 +8,19 @@
 
 #import "KHViewController.h"
 #import "KHButton.h"
+#import <MapKit/MapKit.h>
 
-@interface TPMapDisclosureViewController : KHViewController <UITableViewDataSource, UITableViewDelegate, KHButtonDelegate>
+@class PFObject;
+
+@interface TPMapDisclosureViewController : KHViewController <UITableViewDataSource, UITableViewDelegate, KHButtonDelegate, MKMapViewDelegate>
+
+@property (nonatomic, strong) UITableView *tableView;
+@property (nonatomic, strong) MKMapView *mapView;
+@property (nonatomic, strong) PFObject *selectedObject;
+@property (nonatomic, strong) CLLocation *location;
+@property (nonatomic, strong) NSArray *placeholders;
+@property (nonatomic, strong) NSArray *labels;
+
+- (id)initWithObject:(PFObject *)object;
 
 @end

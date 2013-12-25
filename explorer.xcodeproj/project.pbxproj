@@ -21,6 +21,7 @@
 		2C1DCECB1869314C00C17433 /* NSString+TimeFormatting.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C1DCEC61869314C00C17433 /* NSString+TimeFormatting.m */; };
 		2C1DCECC1869314C00C17433 /* UIColor+addVeryLightGray.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C1DCEC81869314C00C17433 /* UIColor+addVeryLightGray.m */; };
 		2C1DCF3E186936F600C17433 /* ELCTextFieldCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C1DCF3D186936F600C17433 /* ELCTextFieldCell.m */; };
+		2C305EFA186A6A9300E02050 /* TPPinAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C305EF9186A6A9300E02050 /* TPPinAnnotationView.m */; };
 		2C47BE58186173EB0016871F /* map.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C47BE52186173EB0016871F /* map.png */; };
 		2C47BE59186173EB0016871F /* map@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C47BE53186173EB0016871F /* map@2x.png */; };
 		2C47BE5A186173EB0016871F /* users.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C47BE54186173EB0016871F /* users.png */; };
@@ -149,6 +150,8 @@
 		2C1DCEC81869314C00C17433 /* UIColor+addVeryLightGray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+addVeryLightGray.m"; sourceTree = "<group>"; };
 		2C1DCF3C186936F600C17433 /* ELCTextFieldCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELCTextFieldCell.h; sourceTree = "<group>"; };
 		2C1DCF3D186936F600C17433 /* ELCTextFieldCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELCTextFieldCell.m; sourceTree = "<group>"; };
+		2C305EF8186A6A9300E02050 /* TPPinAnnotationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPPinAnnotationView.h; sourceTree = "<group>"; };
+		2C305EF9186A6A9300E02050 /* TPPinAnnotationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPPinAnnotationView.m; sourceTree = "<group>"; };
 		2C47BE52186173EB0016871F /* map.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = map.png; sourceTree = "<group>"; };
 		2C47BE53186173EB0016871F /* map@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "map@2x.png"; sourceTree = "<group>"; };
 		2C47BE54186173EB0016871F /* users.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = users.png; sourceTree = "<group>"; };
@@ -638,6 +641,8 @@
 				2C81A4FD1859049A006CB2BA /* TPSIgnupView.m */,
 				2C1DCE95186921E400C17433 /* TPDragAnnotationView.h */,
 				2C1DCE96186921E400C17433 /* TPDragAnnotationView.m */,
+				2C305EF8186A6A9300E02050 /* TPPinAnnotationView.h */,
+				2C305EF9186A6A9300E02050 /* TPPinAnnotationView.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -877,6 +882,7 @@
 				2C81A4CD18590295006CB2BA /* MMDrawerBarButtonItem.m in Sources */,
 				2C1DCEAE18692C9400C17433 /* OCAnnotation.m in Sources */,
 				2C81A4B718590295006CB2BA /* AFJSONRequestOperation.m in Sources */,
+				2C305EFA186A6A9300E02050 /* TPPinAnnotationView.m in Sources */,
 				2C883B231863A9180045FE55 /* TPPlaceStore.m in Sources */,
 				2C81A4BA18590295006CB2BA /* AFURLConnectionOperation.m in Sources */,
 				2C81A4471858FBEE006CB2BA /* TPAppDelegate.m in Sources */,

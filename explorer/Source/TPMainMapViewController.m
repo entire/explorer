@@ -16,6 +16,7 @@
 #import "TPMapOverlay.h"
 #import "TPMapOverlayRenderer.h"
 #import "TPUserManager.h"
+#import "TPPinAnnotationView.h"
 #import "REMenu.h"
 #import "TPAddNewPlaceViewController.h"
 
@@ -70,8 +71,16 @@
     // fetch objects
     PFQuery *query = [PFQuery queryWithClassName:@"Places"];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-        self.places = [NSMutableArray arrayWithArray:objects];
-        [self addAllPFObjectAnnotations:self.places];
+
+        self.places = [[NSMutableDictionary alloc] init];
+        
+        for (PFObject *object in objects) {
+            [self.places setObject:object forKey:object.objectId];
+        }
+        
+        [self addAllPFObjectAnnotations:objects];
+        
+        
     }];
     
     // adding long press gesture recognizer to mapview
@@ -124,7 +133,10 @@
     NSString *objectId = holder.objectId;
     PFUser *user = [[TPUserManager sharedStore] getUserFromLocal:objectId];
     
-    TPGeoPointAnnotation *annotation = [[TPGeoPointAnnotation alloc] initWithObject:object andUsername:user.username];
+    NSString *tag = object.objectId;
+    
+    TPGeoPointAnnotation *annotation = [[TPGeoPointAnnotation alloc] initWithObject:object andUsername:user.username andTag:tag];
+    
     [self.mapView addAnnotation:annotation];
 }
 
@@ -136,9 +148,39 @@
     //    [self centerMapViewToCurrentLocation];
 }
 
+#pragma mark - MKMapViewDelegate
+
+- (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation
+{
+    static NSString *GeoPointAnnotationIdentifier = @"RedPin";
+    
+    if (![annotation isKindOfClass:[MKUserLocation class]]) {
+        TPPinAnnotationView *annotationView = (TPPinAnnotationView *)[mapView dequeueReusableAnnotationViewWithIdentifier:GeoPointAnnotationIdentifier];
+        
+        TPGeoPointAnnotation *identifier = (TPGeoPointAnnotation *)annotation;
+        
+        if (!annotationView) {
+            annotationView = [[TPPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:GeoPointAnnotationIdentifier];
+            annotationView.pinColor = MKPinAnnotationColorRed;
+            annotationView.canShowCallout = YES;
+            annotationView.draggable = YES;
+            annotationView.animatesDrop = YES;
+            annotationView.tagString = identifier.tag;
+            annotationView.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeInfoLight];
+        }
+        
+        return annotationView;
+        
+    } else {
+        return nil;
+    }
+}
+
 - (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control
 {
-    TPMapDisclosureViewController *vc = [[TPMapDisclosureViewController alloc] init];
+    TPPinAnnotationView *annotationView = (TPPinAnnotationView *)view;
+    PFObject *object = [self.places objectForKey:annotationView.tagString];
+    TPMapDisclosureViewController *vc = [[TPMapDisclosureViewController alloc] initWithObject:object];
     [self.navigationController pushViewController:vc animated:YES];
 }
 

@@ -115,11 +115,12 @@
     NSString *objectId = holder.objectId;
     PFUser *user = [[TPUserManager sharedStore] getUserFromLocal:objectId];
     
-    TPGeoPointAnnotation *annotation = [[TPGeoPointAnnotation alloc] initWithObject:object andUsername:user.username];
+    NSString *tag = object.objectId;
+    TPGeoPointAnnotation *annotation = [[TPGeoPointAnnotation alloc] initWithObject:object andUsername:user.username andTag:tag];
     [self.mapView addAnnotation:annotation];
 }
 
-- (void)addAllPFObjectAnnotations:(NSMutableArray *)pins
+- (void)addAllPFObjectAnnotations:(NSArray *)pins
 {
     for (PFObject *pin in pins) {
         [self addAnnotationsWithObject:pin];

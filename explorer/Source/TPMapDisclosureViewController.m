@@ -7,12 +7,48 @@
 //
 
 #import "TPMapDisclosureViewController.h"
+#import <Parse/Parse.h>
+#import "TPGeoPointAnnotation.h"
 
 @interface TPMapDisclosureViewController ()
 
 @end
 
 @implementation TPMapDisclosureViewController
+
+
+- (id)initWithObject:(PFObject *)object
+{
+    self = [super init];
+    if (self) {
+        self.selectedObject = object;
+        
+        PFGeoPoint *point = object[@"location"];
+        self.location = [[CLLocation alloc] initWithLatitude:point.latitude longitude:point.longitude];
+        
+        self.labels = @[@"Name",
+                        @"Why Visit",
+                        @"Address",
+                        @"City",
+                        @"State",
+                        @"Postal Code",
+                        @"Country"
+                        ];
+        
+        self.placeholders = @[
+                              object[@"nameOfPlace"],
+                              object[@"reasonToVisit"],
+                              object[@"address"],
+                              object[@"city"],
+                              object[@"state"],
+                              object[@"postalcode"],
+                              object[@"country"]
+                              ];
+
+        
+    }
+    return self;
+}
 
 - (void)loadView
 {
@@ -39,6 +75,24 @@
     
     //    [self.view addSubview:button];
     
+    self.mapView = [[MKMapView alloc] initWithFrame:CGRectMake(0, self.y_start+self.barSize, 320, 160)];
+    [self.mapView setShowsUserLocation:NO];
+    [self.mapView setMapType:MKMapTypeHybrid];
+    [self.mapView setZoomEnabled:YES];
+    [self.mapView setScrollEnabled:YES];
+    self.mapView.delegate = self;
+    [self.mapView setRegion:MKCoordinateRegionMake(self.location.coordinate, MKCoordinateSpanMake(0.001, 0.001)) animated:YES];
+    [self.view addSubview:self.mapView];
+
+    MKPointAnnotation *annotation = [[MKPointAnnotation alloc] init];
+    [annotation setCoordinate:self.location.coordinate];
+    [self.mapView addAnnotation:annotation];
+    
+    self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, self.y_start+self.barSize+160, 320, 245)];
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
+    self.tableView.separatorColor = [UIColor clearColor];
+    [self.view addSubview:self.tableView];
 }
 
 - (void)didReceiveMemoryWarning
@@ -55,7 +109,12 @@
 #pragma mark - UITableViewCell Data Source Methods
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 12;
+    return self.placeholders.count;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 50.0f;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -64,8 +123,12 @@
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
     if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue2 reuseIdentifier:cellID];
     }
+    
+    cell.textLabel.text = self.labels[indexPath.row];
+    cell.detailTextLabel.text = self.placeholders[indexPath.row];
+    cell.detailTextLabel.numberOfLines = 0;
     
     return cell;
 }
