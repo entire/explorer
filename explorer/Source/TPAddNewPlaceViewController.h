@@ -31,7 +31,13 @@
 @property (nonatomic, strong) NSArray *labels;
 @property (nonatomic, strong) NSArray *placeholders;
 @property (nonatomic, strong) NSString *currentAddress;
-
+@property (nonatomic, strong) NSString *currentState;
+@property (nonatomic, strong) NSString *currentCountry;
+@property (nonatomic, strong) NSString *currentZIP;
+@property (nonatomic, strong) NSString *currentCity;
+@property (nonatomic, strong) NSString *nameOfPlace;
+@property (nonatomic, strong) NSString *whyInteresting;
+@property (nonatomic, strong) UIImage *selectedImage;
 
 - (id)initWithLocation:(CLLocation *)location;
 

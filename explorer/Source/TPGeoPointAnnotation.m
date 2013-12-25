@@ -49,7 +49,6 @@
     }];
 }
 
-
 #pragma mark - ()
 
 - (void)setGeoPoint:(PFGeoPoint *)geoPoint {
@@ -69,10 +68,8 @@
         numberFormatter.maximumFractionDigits = 3;
     }
     
-    _title = [dateFormatter stringFromDate:self.object.updatedAt];
-    _subtitle = [NSString stringWithFormat:@"User: %@ was at %@, %@", username,
-                 [numberFormatter stringFromNumber:[NSNumber numberWithDouble:geoPoint.latitude]],
-                 [numberFormatter stringFromNumber:[NSNumber numberWithDouble:geoPoint.longitude]]];
+    _title = [NSString stringWithFormat:@"%@",self.object[@"nameOfPlace"]];
+    _subtitle = [NSString stringWithFormat:@"%@ %@",self.object[@"address"], self.object[@"city"]];
 }
 
 @end

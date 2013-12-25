@@ -31,13 +31,21 @@
         self.currentAddress = [NSString stringWithFormat:@"..."];
         
         self.labels = @[@"Name",
-                       @"Address",
-                       @"Phone Number"
+                        @"Why Visit",
+                       @"Street Address",
+                       @"City",
+                        @"State",
+                        @"Postal Code",
+                        @"Country"
                        ];
         
         self.placeholders = @[@"Enter Name of place",
-                             @"looking up current address...",
-                             @"Phone Number (Optional)"
+                             @"Why it's interesting...",
+                             @"Address",
+                             @"City",
+                             @"State",
+                             @"Postal Code",
+                             @"Country"
                              ];
     }
     return self;
@@ -48,7 +56,9 @@
 - (void)loadView
 {
     UIView *view = [[UIView alloc] initWithFrame:[KHBase getCurrentCGRect]];
+    view.backgroundColor = [UIColor whiteColor];
     
+    self.mapView = [[MKMapView alloc] init];
     [self.mapView setFrame: CGRectMake(0, self.barSize+self.y_start, self.width, self.height-self.barSize-self.y_start-self.barSize)];
     [self.mapView setShowsUserLocation:NO];
     [self.mapView setMapType:MKMapTypeStandard];
@@ -65,13 +75,14 @@
                                                 withTitle:@"Add Meeting"];
     self.addButton.frame = CGRectMake(0, self.height-self.barSize, self.width, self.barSize);
     self.addButton.delegate = self;
-    [self.view addSubview:self.addButton];
-
-    self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, self.barSize+160, 320, self.height-self.barSize-160)];
+    [view addSubview:self.addButton];
+    
+    self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, self.barSize+self.y_start+160, 320, 210)];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     self.tableView.alpha = 0.0f;
-    [self.view addSubview:self.tableView];
+    [view addSubview:self.tableView];
+    
     
     self.view = view;
 }
@@ -79,6 +90,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    self.navigationController.navigationBar.translucent = YES;
+
     
     UITapGestureRecognizer *singleTapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleSingleTapGesture:)];
     singleTapRecognizer.numberOfTapsRequired = 1;
@@ -141,7 +155,6 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [self moveAnnotationToCoordinate:self.location.coordinate];
-
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -184,8 +197,8 @@
     [self.navigationItem setRightBarButtonItem: buttonItem animated:YES];
     
     [UIView animateWithDuration:0.3f animations:^{
-        self.mapView.frame = CGRectMake(0, self.barSize, self.width, 160);
-        self.addButton.frame = CGRectMake(0, self.height, self.width, self.barSize);
+        self.mapView.frame = CGRectMake(0, self.y_start+self.barSize, self.width, 160);
+        self.addButton.alpha = 0.0f;
         self.tableView.alpha = 1.0;
         
         CLLocationDistance distance = 2000;
@@ -199,13 +212,14 @@
 - (void)openMapAndCloseDetailView
 {
     detailViewIsShowing = NO;
+    [self setEditing:NO animated:YES];
     
     self.navigationItem.rightBarButtonItem = nil;
     
     [UIView animateWithDuration:0.2f animations:^{
-        [self.mapView setFrame: CGRectMake(0, self.barSize+self.y_start, self.width, self.height-self.barSize-self.y_start-self.barSize)];
-        self.addButton.frame = CGRectMake(0, self.height-self.barSize, self.width, self.barSize);
-        self.tableView.alpha = 0.0;
+        [self.mapView setFrame: CGRectMake(0, self.y_start+self.barSize, self.width, self.height-self.barSize-self.y_start-self.barSize)];
+        self.addButton.alpha = 1.0f;
+        self.tableView.alpha = 0.0f;
     }];
 }
 
@@ -236,16 +250,11 @@
         }
         CLPlacemark *placemark = placemarks[0];
         
-        NSLog(@"%@", placemark.addressDictionary);
-        
-        NSString *street = placemark.addressDictionary[@"Street"];
-        NSString *zip = placemark.addressDictionary[@"ZIP"];
-        NSString *city = placemark.addressDictionary[@"City"];
-        NSString *state = placemark.addressDictionary[@"State"];
-        NSString *country = placemark.addressDictionary[@"Country"];
-        
-        self.currentAddress = [NSString stringWithFormat:@"%@, %@, %@, %@, %@", street, city, state, zip, country];
-        
+        self.currentAddress = placemark.addressDictionary[@"Street"];
+        self.currentZIP = placemark.addressDictionary[@"ZIP"];
+        self.currentCity = placemark.addressDictionary[@"City"];
+        self.currentState = placemark.addressDictionary[@"State"];
+        self.currentCountry = placemark.addressDictionary[@"Country"];
         
         [self.tableView reloadData];
     }];
@@ -262,20 +271,52 @@
 {
     NSLog(@"ok!");
     
-    [[TPLocationManager sharedLocation] pushLocationToServer:self.location
-                                              withCompletion:^(CLLocation *yourLocaiton, PFObject *object) {
-                                                  
-                                                  PFUser *holder = object[@"user"];
-                                                  NSString *objectId = holder.objectId;
-                                                  PFUser *user = [[TPUserManager sharedStore] getUserFromLocal:objectId];
-                                                  
-                                                  TPGeoPointAnnotation *annotation = [[TPGeoPointAnnotation alloc] initWithObject:object andUsername:user.username];
-                                                  
-                                                  if ([self.delegate respondsToSelector:@selector(userClickedOk:)]) {
-                                                      [self.delegate userClickedOk:annotation];
-                                                      [self dismissViewControllerAnimated:YES completion:nil];
-                                                  }
-                                              }];
+    NSIndexPath *namePath = [NSIndexPath indexPathForRow:0 inSection:0];
+    NSIndexPath *whyPath = [NSIndexPath indexPathForRow:1 inSection:0];
+    ELCTextFieldCell *nameCell = (ELCTextFieldCell*)[self.tableView cellForRowAtIndexPath:namePath];
+    ELCTextFieldCell *whyCell = (ELCTextFieldCell*)[self.tableView cellForRowAtIndexPath:whyPath];
+    self.nameOfPlace = nameCell.rightTextField.text;
+    self.whyInteresting = whyCell.rightTextField.text;
+    
+    PFACL *ACL = [PFACL ACL];
+    [ACL setWriteAccess:YES forUser:[PFUser currentUser]];
+    [ACL setReadAccess:YES forUser:[PFUser currentUser]];
+    [ACL setPublicReadAccess:YES];
+    [ACL setPublicWriteAccess:YES];
+    
+	// Configure the new event with information from the location.
+	CLLocationCoordinate2D coordinate = self.annotation.coordinate;
+    
+    PFGeoPoint *geoPoint = [PFGeoPoint geoPointWithLatitude:coordinate.latitude longitude:coordinate.longitude];
+    PFObject *object = [PFObject objectWithClassName:@"Places"];
+    [object setObject:geoPoint forKey:@"location"];
+    [object setObject:[PFUser currentUser] forKey:@"user"];
+    [object setObject:self.currentAddress forKey:@"address"];
+    [object setObject:self.currentCity forKey:@"city"];
+    [object setObject:self.currentState forKey:@"state"];
+    [object setObject:self.currentZIP forKey:@"postalcode"];
+    [object setObject:self.currentCountry forKey:@"country"];
+    [object setObject:self.whyInteresting forKey:@"reasonToVisit"];
+    [object setObject:self.nameOfPlace forKey:@"nameOfPlace"];
+    
+    [object setACL:ACL];
+    
+    [object saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        if (succeeded) {
+            PFUser *user = [PFUser currentUser];
+            PFRelation *relation = [user relationforKey:@"Places"];
+            [relation addObject:object];
+            
+            TPGeoPointAnnotation *annotation = [[TPGeoPointAnnotation alloc] initWithObject:object andUsername:user.username];
+            [self.delegate userClickedOk:annotation];
+            
+            [self dismissViewControllerAnimated:YES completion:^{
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [user saveInBackground];
+                });
+            }];
+        }
+    }];
 }
 
 
@@ -292,8 +333,9 @@
         NSLog(@"%f, %f", coordinate.latitude, coordinate.longitude);
         
         self.location = [[CLLocation alloc] initWithLatitude:coordinate.latitude longitude:coordinate.longitude];
-        
         [UIView commitAnimations];
+        [self findAddress];
+        
     } else {
         NSLog(@"new!");
         self.annotation = [[MKPointAnnotation alloc] init];
@@ -364,6 +406,7 @@
 - (void)movedAnnotation:(MKPointAnnotation *)annotation
 {
     NSLog(@"Dragged annotation to %f,%f", annotation.coordinate.latitude, annotation.coordinate.longitude);
+    [self findAddress];
 }
 
 #pragma mark - BCNewPlaceDetailViewController delegate methods
@@ -380,7 +423,7 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 55.0f;
+    return 35.0f;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -392,7 +435,7 @@
     if (cell == nil) {
         cell = [[ELCTextFieldCell alloc] initWithStyle:UITableViewCellStyleValue2 reuseIdentifier:cellID];
     }
-	
+	cell.delegate = self;
 	[self configureCell:cell atIndexPath:indexPath];
     
     return cell;
@@ -402,17 +445,25 @@
 	
 	cell.leftLabel.text = [self.labels objectAtIndex:indexPath.row];
 	cell.rightTextField.placeholder = [self.placeholders objectAtIndex:indexPath.row];
-    cell.rightTextField.font = [UIFont systemFontOfSize:10];
+    cell.rightTextField.font = [UIFont systemFontOfSize:14];
+    cell.rightTextField.tag = indexPath.row;
 	cell.indexPath = indexPath;
-	cell.delegate = self;
+
     //Disables UITableViewCell from accidentally becoming selected.
     cell.selectionStyle = UITableViewCellEditingStyleNone;
     
-    if (indexPath.row == 1) {
+    if (indexPath.row == 2) {
         cell.rightTextField.text = self.currentAddress;
+    } else if (indexPath.row == 3) {
+        cell.rightTextField.text = self.currentCity;
+    } else if (indexPath.row == 4) {
+        cell.rightTextField.text = self.currentState;
+    } else if (indexPath.row == 5) {
+        cell.rightTextField.text = self.currentZIP;
+    } else if (indexPath.row == 6) {
+        cell.rightTextField.text = self.currentCountry;
     }
 }
-
 
 #pragma mark - UITableView Delegate Methods
 
@@ -440,10 +491,11 @@
 	else {
 		[[(ELCTextFieldCell*)[self.tableView cellForRowAtIndexPath:indexPath] rightTextField] resignFirstResponder];
 	}
+    
 }
 
 - (void)textFieldCell:(ELCTextFieldCell *)inCell updateTextLabelAtIndexPath:(NSIndexPath *)indexPath string:(NSString *)string {
-    
+
 }
 
 

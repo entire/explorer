@@ -96,12 +96,21 @@
 {
     [super viewWillAppear:animated];
     
-    // USER SIGN IN STATUS CHECK
-    if (![PFUser currentUser]) { // User is not logged in
-        NSLog(@"RootVC - viewDidAppear and user is not logged in");
-        [self showButtons];
-        
+    if ([PFUser currentUser]) {
+        [self hideButtons];
     } else {
+        [self showButtons];
+    }
+    
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    
+    // USER SIGN IN STATUS CHECK
+
+    if ([PFUser currentUser]) { // User is not logged in
         NSLog(@"RootVC - viewDidAppear and user is logged in!");
         self.navigationController.navigationBarHidden = YES;
         
@@ -122,19 +131,31 @@
             
             if(block){
                 block(drawerController, drawerSide, percentVisible);
+                
             }
         }];
         
         [self.navigationController pushViewController:drawerController animated:NO];
+        
+        NSLog(@"push vc");
+    } else {
+        NSLog(@"RootVC - viewDidAppear and user is not logged in!");
+        [self showButtons];
     }
+
 }
 
-- (void)viewDidAppear:(BOOL)animated
+- (void)showButtons
 {
-    [super viewDidAppear:animated];
+    self.loginButton.alpha = 1.0f;
+    self.signupButton.alpha = 1.0f;
 }
 
-
+- (void)hideButtons
+{
+    self.loginButton.alpha = 0.0f;
+    self.signupButton.alpha = 0.0f;
+}
 
 - (void)didReceiveMemoryWarning
 {
@@ -180,11 +201,8 @@
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
-- (void)showButtons
-{
 
-    
-}
+
 
 #pragma mark - EGSButton Delegate Methods
 

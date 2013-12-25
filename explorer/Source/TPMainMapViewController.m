@@ -46,6 +46,13 @@
     self.navigationItem.hidesBackButton = YES;
     self.navigationItem.title = @"Map";
     
+    // Do any additional setup after loading the view.
+    NSDictionary *attributes = [NSDictionary dictionaryWithObjectsAndKeys:
+                                [UIFont fontWithName:@"TitilliumText25L-250wt" size:16], NSFontAttributeName,
+                                [UIColor colorWithRed:84.0/255.0 green:124.0/255.0 blue:146.0/255.0 alpha:1], NSForegroundColorAttributeName, nil];
+    
+    [[UIBarButtonItem appearance] setTitleTextAttributes:attributes forState:UIControlStateNormal];
+    
     [[UINavigationBar appearance] setTintColor:[UIColor darkGrayColor]];
     
     // adding navigation button items
@@ -61,7 +68,7 @@
 
 
     // fetch objects
-    PFQuery *query = [PFQuery queryWithClassName:@"Location"];
+    PFQuery *query = [PFQuery queryWithClassName:@"Places"];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         self.places = [NSMutableArray arrayWithArray:objects];
         [self addAllPFObjectAnnotations:self.places];

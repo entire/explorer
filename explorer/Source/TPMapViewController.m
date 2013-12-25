@@ -47,8 +47,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
-    
+
     // delegate setup
     [TPLocationManager sharedLocation].delegate = self;
 
@@ -102,8 +101,8 @@
     
     MKCoordinateRegion region;
     MKCoordinateSpan span;
-    span.latitudeDelta = 0.03;
-    span.longitudeDelta = 0.03;
+    span.latitudeDelta = 0.01;
+    span.longitudeDelta = 0.01;
     
     region.span = span;
     region.center = location;

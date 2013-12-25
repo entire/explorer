@@ -42,6 +42,7 @@
     self.navigationItem.title = @"join";
     
     [self.signupView.usernameField becomeFirstResponder];
+    
     NSDictionary *attributes = [NSDictionary dictionaryWithObjectsAndKeys:
                                 [UIFont fontWithName:@"TitilliumText25L-250wt" size:16], NSFontAttributeName,
                                 [UIColor colorWithRed:84.0/255.0 green:124.0/255.0 blue:146.0/255.0 alpha:1], NSForegroundColorAttributeName, nil];

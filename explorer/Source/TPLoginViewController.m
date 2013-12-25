@@ -28,11 +28,11 @@
     [[UINavigationBar appearance] setTintColor:[UIColor darkGrayColor]];
     self.navigationItem.title = @"login";
     
-    NSDictionary *attributes = @{
-                                 NSFontAttributeName: [UIFont fontWithName:@"TitilliumText25L-250wt" size:16],
-                                 NSForegroundColorAttributeName: [UIColor colorWithRed:84.0/255.0 green:124.0/255.0 blue:146.0/255.0 alpha:1]
-                                 };
-    [[UINavigationBar appearance] setTitleTextAttributes:attributes];
+    NSDictionary *attributes = [NSDictionary dictionaryWithObjectsAndKeys:
+                                [UIFont fontWithName:@"TitilliumText25L-250wt" size:16], NSFontAttributeName,
+                                [UIColor colorWithRed:84.0/255.0 green:124.0/255.0 blue:146.0/255.0 alpha:1], NSForegroundColorAttributeName, nil];
+    
+    [[UIBarButtonItem appearance] setTitleTextAttributes:attributes forState:UIControlStateNormal];
     
     [self.logInView setBackgroundColor:[UIColor whiteColor]];
 
