@@ -79,8 +79,6 @@
         }
         
         [self addAllPFObjectAnnotations:objects];
-        
-        
     }];
     
     // adding long press gesture recognizer to mapview
@@ -132,7 +130,6 @@
     PFUser *holder = object[@"user"];
     NSString *objectId = holder.objectId;
     PFUser *user = [[TPUserManager sharedStore] getUserFromLocal:objectId];
-    
     NSString *tag = object.objectId;
     
     TPGeoPointAnnotation *annotation = [[TPGeoPointAnnotation alloc] initWithObject:object andUsername:user.username andTag:tag];
@@ -158,6 +155,8 @@
         TPPinAnnotationView *annotationView = (TPPinAnnotationView *)[mapView dequeueReusableAnnotationViewWithIdentifier:GeoPointAnnotationIdentifier];
         
         TPGeoPointAnnotation *identifier = (TPGeoPointAnnotation *)annotation;
+        PFObject *obj = [self.places objectForKey:identifier.tag];
+        NSLog(@"place: %@", obj[@"nameOfPlace"]);
         
         if (!annotationView) {
             annotationView = [[TPPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:GeoPointAnnotationIdentifier];
@@ -180,6 +179,8 @@
 {
     TPPinAnnotationView *annotationView = (TPPinAnnotationView *)view;
     PFObject *object = [self.places objectForKey:annotationView.tagString];
+    
+    NSLog(@"clicked! : %@", object[@"nameOfPlace"]);
     TPMapDisclosureViewController *vc = [[TPMapDisclosureViewController alloc] initWithObject:object];
     [self.navigationController pushViewController:vc animated:YES];
 }

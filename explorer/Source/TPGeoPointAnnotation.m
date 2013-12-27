@@ -27,6 +27,7 @@
         _object = aObject;
         username = name;
         self.tag = tag;
+        NSLog(@"added %@ -- tag: %@", aObject[@"nameOfPlace"], aObject.objectId);
         PFGeoPoint *geoPoint = self.object[@"location"];
         [self setGeoPoint:geoPoint];
     }
